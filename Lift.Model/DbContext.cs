@@ -6,8 +6,9 @@ using System.Linq;
 
 namespace Lift.Model
 {
-  public partial class DbContext : System.Data.Entity.DbContext,Model.Autofac.ITransient
+  public partial class DbContext : System.Data.Entity.DbContext,Model.Autofac.IScoped
   {
+        Guid id = Guid.NewGuid();
         public DbContext() : base("name=master")
         {
         }    
