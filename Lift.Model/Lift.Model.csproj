@@ -66,7 +66,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="DTO\UserInfo.cs" />
+    <Compile Include="DTO\MenuInfoWrapper.cs" />
+    <Compile Include="DTO\Treedata.cs" />
+    <Compile Include="DTO\BizContext.cs" />
+    <Compile Include="Enum\SessionIndex.cs" />
     <Compile Include="MenuInfo.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
@@ -99,6 +102,13 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lift.Tools\Lift.Tools.csproj">
+      <Project>{33077314-dc9a-4881-a11a-651d024fe5bf}</Project>
+      <Name>Lift.Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

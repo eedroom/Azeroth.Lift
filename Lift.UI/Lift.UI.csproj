@@ -305,6 +305,7 @@
     <Compile Include="App_Start\ControllerExceptionHandler.cs" />
     <Compile Include="App_Start\ControllerHandler.cs" />
     <Compile Include="App_Start\ControllerLogHandler.cs" />
+    <Compile Include="Code\AzerothExtension.cs" />
     <Compile Include="Controllers\Admin\AccountController.cs" />
     <Compile Include="Controllers\AuthenticationedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

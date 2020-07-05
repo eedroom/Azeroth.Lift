@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
+using System.Data.Entity;
 namespace Lift.Bll
 {
     public class Bll<T>:Model.Autofac.ITransient where T:class
@@ -28,10 +29,17 @@ namespace Lift.Bll
             return lst;
         }
 
+        public T GetEntity(Expression<Func<T, bool>> predicate)
+        {
+            var lst = this.dbcontext.Set<T>().Where(predicate).FirstOrDefault();
+            return lst;
+        }
+
         public List<T> GetEntities()
         {
             var lst = this.dbcontext.Set<T>().ToList();
             return lst;
         }
+
     }
 }
