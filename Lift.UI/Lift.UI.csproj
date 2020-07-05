@@ -119,6 +119,8 @@
     <Content Include="Assets\Bootstrap3.3.7\Content\bootstrap.css" />
     <Content Include="Assets\Bootstrap3.3.7\Content\bootstrap.min.css" />
     <Content Include="Assets\Bootstrap3.3.7\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\css\ie10-viewport-bug-workaround.css" />
+    <Content Include="Assets\css\layout-fluid.css" />
     <Content Include="Assets\easyui1.4.5\Content\themes\bootstrap\accordion.css" />
     <Content Include="Assets\easyui1.4.5\Content\themes\bootstrap\calendar.css" />
     <Content Include="Assets\easyui1.4.5\Content\themes\bootstrap\combo.css" />
@@ -253,6 +255,11 @@
     <Content Include="Assets\easyui1.4.5\Content\themes\icons\tip.png" />
     <Content Include="Assets\easyui1.4.5\Content\themes\icons\undo.png" />
     <Content Include="Assets\easyui1.4.5\Content\themes\mobile.css" />
+    <Content Include="Assets\js\html5shiv.min.js" />
+    <Content Include="Assets\js\ie-emulation-modes-warning.js" />
+    <Content Include="Assets\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="Assets\js\ie8-responsive-file-warning.js" />
+    <Content Include="Assets\js\respond.min.js" />
     <Content Include="Global.asax" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
