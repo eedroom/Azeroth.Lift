@@ -43,13 +43,35 @@
         .nav-sidebar{
             margin-bottom:0;
         }
-        .nav-sub>li>a{
+        .nav-sidebar>li>a{
+            font-weight:700;
+        }
+        .nav-sub>li>a>span{
+            padding-left:15px;
             
         }
-        .nav-sub>li>a:hover{
-            background-color:red;
+        .nav-sub a:hover{
+            border-left:5px solid #428bca;
+        }
+        .active>a,.active>a:hover,.active>a:focus{
+            color: #fff;
+            background-color: #428bca;
         }
     </style>
+
+    <script type="text/javascript">
+        $(function () {
+
+            $(".nav-sidebar>li>a").click(function () {
+                var brothers = $(this).parents("ul")//所在ul
+                    .siblings("ul")//所有兄弟的ul
+                    .find("li>ul")
+                    .removeClass("in");
+                
+            });
+        });
+
+    </script>
 </head>
 
 <body>
@@ -85,9 +107,9 @@
                     <li><a data-toggle="collapse" href="#collapseExample">一次加工</a></li>
                     <li >
                         <ul id="collapseExample" class="nav collapse nav-sub">
-                            <li><a href="#"><span style="padding-left:10px">Reports</span></a></li>
-                            <li><a href="#" style="padding-left:10px">Analytics</a></li>
-                            <li><a href="#">Export</a></li>
+                            <li class="active"><a href="#"><span>Reports</span></a></li>
+                            <li><a href="#"><span>Reports2</span></a></a></li>
+                            <li><a href="#"><span>Reports3</span></a></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -95,11 +117,11 @@
                     <li><a data-toggle="collapse" href="#collapseExample2">二次加工</a></li>
                     <li>
                         <ul id="collapseExample2" class="nav collapse nav-sub">
-                            <li><a href="#">加工</a></li>
-                            <li><a href="#">加工三次</a></li>
-                            <li><a href="#">加工很多次</a></li>
-                            <li><a href="#">加工很多次哦</a></li>
-                            <li><a href="#">加工很多次哦啊</a></li>
+                            <li><a href="#"><span>加工</span></a></li>
+                            <li><a href="#"><span>加工三次</span></a></li>
+                            <li><a href="#"><span>加工很多次</span></a></li>
+                            <li><a href="#"><span>加工很多次哦</span></a></li>
+                            <li><a href="#"><span>加工很多次哦啊</span></a></li>
                         </ul>
                     </li>
                 </ul>
