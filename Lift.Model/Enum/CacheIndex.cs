@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lift.Tools
+namespace Lift.Model.Enum
 {
-   public interface  IIndex<T>
+    public enum CacheIndex
     {
-        object this[T key] { get; set; }
-
     }
 }

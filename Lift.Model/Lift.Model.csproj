@@ -69,6 +69,7 @@
     <Compile Include="DTO\MenuInfoWrapper.cs" />
     <Compile Include="DTO\Treedata.cs" />
     <Compile Include="DTO\BizContext.cs" />
+    <Compile Include="Enum\CacheIndex.cs" />
     <Compile Include="Enum\SessionIndex.cs" />
     <Compile Include="MenuInfo.cs">
       <DependentUpon>Entity.tt</DependentUpon>

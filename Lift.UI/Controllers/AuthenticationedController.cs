@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Filters;
 using System.Web.Routing;
 using Lift.Model;
-using System.Web.Routing;
+
 namespace Lift.UI.Controllers
 {
     public class AuthenticationedController : Controller
@@ -47,16 +47,16 @@ namespace Lift.UI.Controllers
             //base.OnAuthorization(filterContext);
             //验证菜单,逻辑，以数据库菜单列表为基准，
             //如果被访问资源和菜单列表可以匹配上，就校验用户能否访问，否则忽略
-            var lstMenu = Model.DTO.MenuInfoWrapper.GetAll();
-            lstMenu.ForEach(x => x.Url = x.Url?.ToLower());
-            var lstMenuTree = lstMenu.Select(x => new Model.DTO.Treedata<Model.DTO.MenuInfo>(x))
+            var lst = Model.DTO.MenuInfoWrapper.GetAll();
+            lst.ForEach(x => x.Url = x.Url?.ToLower());
+            var lstMenuTree = lst.Select(x => new Model.DTO.Treedata<Model.DTO.MenuInfo>(x))
                 .OrderBy(x=>x.value.Url?.Length)
                 .ToList();
             var dictMenu = lstMenuTree.ToDictionary(x => x.value.Id, x => x);
             lstMenuTree.ForEach(x => x.parent = dictMenu.ContainsKey(x.value.Pid ?? Guid.Empty) ? dictMenu[x.value.Pid ?? Guid.Empty] : default(Model.DTO.Treedata<Model.DTO.MenuInfo>));
             lstMenuTree.ForEach(x => x.parent?.children.Add(x));
             //根级的所有菜单菜单
-            var lstMenuRoot = lstMenuTree.Where(x => x.parent == null).ToList();
+            var lstNav = lstMenuTree.Where(x => x.parent == null).ToList();
             
             var route= ((System.Web.Routing.Route)filterContext.RouteData.Route);
             //{controller}/{action}
@@ -67,7 +67,17 @@ namespace Lift.UI.Controllers
             url = url.ToLower();
 
             var matchedMenu= lstMenuTree.FirstOrDefault(x => x.value.Url?.Contains(url)??false);
-            
+            if (matchedMenu != null)
+            {
+                matchedMenu.value.Active = true;
+                matchedMenu.parent.value.Collapsing = true;
+            }
+            Model.DTO.MenuInfoWrapper wrapperMenuInfo = new Model.DTO.MenuInfoWrapper() {
+                Value = lstNav,
+                 MathedItem=matchedMenu
+            };
+            this.ViewData["__wrapperMenuInfo"] = wrapperMenuInfo;
+
         }
 
     }
