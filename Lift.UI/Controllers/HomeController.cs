@@ -19,6 +19,24 @@ namespace Lift.UI.Controllers
             return View();
         }
 
+        public ActionResult Table()
+        {
+            return View();
+        }
+
+        public ActionResult TableData()
+        {
+            var lst= System.Linq.Enumerable.Range(1, 10)
+                .Select(x => new
+                {
+                    name = "部门" + x,
+                    stargazers_count = "上级部门" + x,
+                    forks_count = x,
+                    description = "描述" + x
+                }).ToList();
+            return this.Json(new { total = 100, rows = lst }, JsonRequestBehavior.AllowGet);
+        }
+
 
     }
 }

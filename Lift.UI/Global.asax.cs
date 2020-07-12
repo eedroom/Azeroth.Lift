@@ -15,6 +15,7 @@ namespace Lift.UI
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            System.Web.Mvc.AreaRegistration.RegisterAllAreas();
             //mvc相关
             System.Web.Routing.RouteTable.Routes.MapRoute("l2",
                 "{controller}/{action}",
