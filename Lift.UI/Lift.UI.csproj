@@ -370,6 +370,7 @@
     <Content Include="Views\Danasusi\Youyingu.cshtml" />
     <Content Include="Views\Home\Yilidan.cshtml" />
     <Content Include="Views\Klz\Ailan.cshtml" />
+    <Content Include="Views\HyperBootstrap\Biaodan.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -389,6 +390,7 @@
     <Compile Include="Controllers\AuthenticationedController.cs" />
     <Compile Include="Controllers\DanasusiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HyperBootstrapController.cs" />
     <Compile Include="Controllers\KlzController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
