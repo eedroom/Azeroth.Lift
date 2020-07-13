@@ -365,6 +365,11 @@
     <Content Include="Assets\jQuey\jquery-1.9.1.min.map" />
     <Content Include="Assets\jQuey\jquery-1.11.3.min.map" />
     <Content Include="Views\Home\Table.cshtml" />
+    <Content Include="Views\LayoutFluid.cshtml" />
+    <Content Include="Views\Klz\Wuye.cshtml" />
+    <Content Include="Views\Danasusi\Youyingu.cshtml" />
+    <Content Include="Views\Home\Yilidan.cshtml" />
+    <Content Include="Views\Klz\Ailan.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -382,7 +387,9 @@
     <Compile Include="Code\AzerothExtension.cs" />
     <Compile Include="Controllers\Admin\AccountController.cs" />
     <Compile Include="Controllers\AuthenticationedController.cs" />
+    <Compile Include="Controllers\DanasusiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KlzController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

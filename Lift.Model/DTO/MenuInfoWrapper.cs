@@ -35,6 +35,8 @@ namespace Lift.Model.DTO
 
             m0 = new MenuInfo() { Id = Guid.NewGuid(), Pid = null, Name = "燃烧的远征", Url = string.Empty };
             lst.Add(m0);
+            m1 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m0.Id, Name = "伊利丹", Url = "/Home/Yilidan" };
+            lst.Add(m1);
             m1 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m0.Id, Name = "卡拉赞", Url = string.Empty };
             lst.Add(m1);
             m2 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m1.Id, Name = "午夜", Url = "/Klz/Wuye" };
@@ -49,7 +51,8 @@ namespace Lift.Model.DTO
             lst.Add(m2);
             m2 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m1.Id, Name = "黑暗神殿", Url = "/Waiyu/HeianShendian" };
             lst.Add(m2);
-
+            m2 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m1.Id, Name = "黑暗秘密编年史", Url = "/Home/Index" };
+            lst.Add(m2);
             return lst;
 
         }

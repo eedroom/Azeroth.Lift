@@ -37,6 +37,9 @@ namespace Lift.UI.Controllers
             return this.Json(new { total = 100, rows = lst }, JsonRequestBehavior.AllowGet);
         }
 
-
+        public ActionResult Yilidan()
+        {
+            return this.View();
+        }
     }
 }

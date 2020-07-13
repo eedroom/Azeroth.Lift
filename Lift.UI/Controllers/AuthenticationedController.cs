@@ -50,7 +50,7 @@ namespace Lift.UI.Controllers
             var lst = Model.DTO.MenuInfoWrapper.GetAll();
             lst.ForEach(x => x.Url = x.Url?.ToLower());
             var lstMenuTree = lst.Select(x => new Model.DTO.Treedata<Model.DTO.MenuInfo>(x))
-                .OrderBy(x=>x.value.Url?.Length)
+                //.OrderBy(x=>x.value.Url?.Length)
                 .ToList();
             var dictMenu = lstMenuTree.ToDictionary(x => x.value.Id, x => x);
             lstMenuTree.ForEach(x => x.parent = dictMenu.ContainsKey(x.value.Pid ?? Guid.Empty) ? dictMenu[x.value.Pid ?? Guid.Empty] : default(Model.DTO.Treedata<Model.DTO.MenuInfo>));
@@ -66,15 +66,15 @@ namespace Lift.UI.Controllers
             dictRoutData.ForEach(x => url = url.Replace(x.Key, x.Value.ToString()));
             url = url.ToLower();
 
-            var matchedMenu= lstMenuTree.FirstOrDefault(x => x.value.Url?.Contains(url)??false);
-            if (matchedMenu != null)
+            var mathedItem = lstMenuTree.FirstOrDefault(x => x.value.Url?.Contains(url)??false);
+            if (mathedItem != null)
             {
-                matchedMenu.value.Active = true;
-                matchedMenu.parent.value.Collapsing = true;
+                mathedItem.value.Active = true;
+                mathedItem.parent.value.Collapsing = true;
             }
             Model.DTO.MenuInfoWrapper wrapperMenuInfo = new Model.DTO.MenuInfoWrapper() {
                 Value = lstNav,
-                 MathedItem=matchedMenu
+                 MathedItem= mathedItem
             };
             this.ViewData["__wrapperMenuInfo"] = wrapperMenuInfo;
 
