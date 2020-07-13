@@ -5,14 +5,65 @@
 }
 
 @section style{
+<link href="~/Assets/jquery-easyui-1.5.2/themes/bootstrap/tooltip.css" rel="stylesheet" />
+<link href="~/Assets/jquery-easyui-1.5.2/themes/bootstrap/validatebox.css" rel="stylesheet" />
     <style type="text/css">
-
+        .form-control{
+            width:240px;
+        }
     </style>
 }
 
 @section script{
-
+<script src="~/Assets/jquery-easyui-1.5.2/plugins/jquery.parser.js"></script>
+<script src="~/Assets/jquery-easyui-1.5.2/plugins/jquery.tooltip.js"></script>
+<script src="~/Assets/jquery-easyui-1.5.2/plugins/jquery.validatebox.js"></script>
+<script src="~/Assets/jquery-easyui-1.5.2/plugins/jquery.form.js"></script>
+<script src="~/Assets/jquery-easyui-1.5.2/locale/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
+        $(function () {
 
+            $("form").form({
+                url: "",
+                iframe: false,
+                //低版本全部利用iframe实现表单ajax提交，
+                //优点：ajax提交文件，
+                //缺点：确实ajax全局设置，比如全局模态框避免重复提交
+                onSubmit: function(){    
+                    var isValid = $(this).form('validate');
+                    console.log("表单校验结果", isValid);
+                    return isValid;	// 返回false终止表单提交
+                },    
+                success:function(data){    
+                    console.log("表单提交成功",data);
+                }    
+            }); 
+        });
     </script>
 }
+
+<p >bootstrap和easyui的样式有冲突，全家桶混用会出问题，比如涉及到panel和easyui数组件</p>
+<p >所以bootstrap全家桶+easyui单个组件配合使用</p>
+
+<form >
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="text" class="form-control easyui-validatebox" data-options="required:true" id="exampleInputEmail1" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control easyui-validatebox" data-options="required:true" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox"> Check me out
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary">确定</button>
+</form>
+
