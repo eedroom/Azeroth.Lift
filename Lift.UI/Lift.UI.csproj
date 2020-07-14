@@ -200,6 +200,9 @@
     <Content Include="Assets\Bootstrap3.3.7\js\bootstrap.min.js" />
     <Content Include="Assets\css\ie10-viewport-bug-workaround.css" />
     <Content Include="Assets\css\layout-fluid.css" />
+    <Content Include="Assets\img\img10.jpg" />
+    <Content Include="Assets\img\img11.jpg" />
+    <Content Include="Assets\img\img12.jpg" />
     <Content Include="Assets\jquery-easyui-1.5.2\changelog.txt" />
     <Content Include="Assets\jquery-easyui-1.5.2\demo\accordion\actions.html" />
     <Content Include="Assets\jquery-easyui-1.5.2\demo\accordion\ajax.html" />
@@ -687,6 +690,7 @@
     <Content Include="Views\Bootstrap\Biaodan.cshtml" />
     <Content Include="Views\Easyui\DemoList.cshtml" />
     <Content Include="Views\Easyui\Tree.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -714,9 +718,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Account\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Lift.Bll\Lift.Bll.csproj">
       <Project>{0eca744c-1ce0-4a99-a89e-731be2cfe2c4}</Project>
