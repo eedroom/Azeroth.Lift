@@ -56,17 +56,15 @@ namespace Lift.Model.DTO
 
             m0 = new MenuInfo() { Id = Guid.NewGuid(), Pid = null, Name = "组件", Url = string.Empty };
             lst.Add(m0);
-            m1 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m0.Id, Name = "组合使用", Url = string.Empty };
-            lst.Add(m1);
-            m2 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m1.Id, Name = "表单", Url = "/HyperBootstrap/Biaodan" };
-            lst.Add(m2);
             m1 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m0.Id, Name = "Bootstrap", Url = string.Empty };
             lst.Add(m1);
-            m2 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m1.Id, Name = "列表折叠", Url = "/Bootstrap/ListZhedie" };
+            m2 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m1.Id, Name = "表单", Url = "/Bootstrap/Biaodan" };
             lst.Add(m2);
             m1 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m0.Id, Name = "Easyui", Url = string.Empty };
             lst.Add(m1);
             m2 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m1.Id, Name = "树", Url = "/Easyui/Tree" };
+            lst.Add(m2);
+            m2 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m1.Id, Name = "官方demo", Url = "/Easyui/DemoList" };
             lst.Add(m2);
             return lst;
 

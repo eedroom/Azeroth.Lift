@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace Lift.UI.Controllers
 {
-    public class HyperBootstrapController : AuthenticationedController
+    public class BootstrapController : AuthenticationedController
     {
-        // GET: HyperBootstrap
+        // GET: Bootstrap
         public ActionResult Biaodan()
         {
             return View();
