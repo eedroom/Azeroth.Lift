@@ -4,5 +4,95 @@
     Layout = "~/Views/LayoutFluid.cshtml";
 }
 
-<h2>DemoList</h2>
+@section style{
+<link href="~/Assets/jquery-easyui-1.5.2/themes/bootstrap/tree.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .tree-demo{
+            position:fixed;
+            top:61px;
+            right:10px;
+            bottom:10px;
+            overflow-y:scroll;
+        }
+    </style>
+}
+
+@section script{
+<script src="~/Assets/jquery-easyui-1.5.2/plugins/jquery.parser.js"></script>
+    <script src="~/Assets/jquery-easyui-1.5.2/plugins/jquery.draggable.js"></script>
+    <script src="~/Assets/jquery-easyui-1.5.2/plugins/jquery.droppable.js"></script>
+    <script src="~/Assets/jquery-easyui-1.5.2/plugins/jquery.tree.js"></script>
+    <script src="~/Assets/jquery-easyui-1.5.2/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript">
+        $(function () {
+
+           var tree= $('#tt').tree({    
+                url: "Treedata",
+                onDblClick: function (node) {
+                    tree.tree("toggle", node.target);
+                },
+                onClick: function (node) {
+                    node.attributes && $("#iframeDemo").prop("src", node.attributes.url);
+                    node.attributes && $.get(node.attributes.url, {}, function (html) {
+                        $("#code").text(html);
+                    });
+                },
+                onLoadSuccess: function (noderoot, data) {
+                    var node = tree.tree("find", data[0].children[0].id);
+                    tree.tree("expandTo", node.target);
+                    tree.tree("select", node.target);
+                    node.attributes && $("#iframeDemo").prop("src", node.attributes.url);
+                    node.attributes && $.get(node.attributes.url, {}, function (html) {
+                        $("#code").text(html);
+                    });
+                }
+            });  
+        });
+    </script>
+}
+
+<div class="row">
+    <div class="col-md-17">
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            效果图
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe id="iframeDemo" class="embed-responsive-item" src=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            源代码
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <textarea id="code" class="form-control" rows="20"></textarea>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ul id="tt" class="tree-demo col-md-4"></ul>
+
+
+
 
