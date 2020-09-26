@@ -7,8 +7,8 @@
     <ProjectGuid>{33077314-DC9A-4881-A11A-651D024FE5BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lift.Tools</RootNamespace>
-    <AssemblyName>Lift.Tools</AssemblyName>
+    <RootNamespace>Gutop.Util</RootNamespace>
+    <AssemblyName>Gutop.Util</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

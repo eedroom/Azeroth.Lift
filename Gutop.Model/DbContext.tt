@@ -19,6 +19,7 @@ using System.Linq;
 namespace Lift.Model
 {
 <#
+    return;
     string cnnstrName="master";
     string nameClass= System.IO.Path.GetFileNameWithoutExtension(this.Host.TemplateFile);
     this.WriteLine(string.Format("{0}public partial class {1} : System.Data.Entity.DbContext,Model.Autofac.IScoped",new String(' ',2),nameClass));

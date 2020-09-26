@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lift.UI", "Lift.UI\Lift.UI.csproj", "{A2AF8BF7-A27B-46A1-98C7-1F7863A5EAFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutop.Portal", "Gutop.Portal\Gutop.Portal.csproj", "{A2AF8BF7-A27B-46A1-98C7-1F7863A5EAFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lift.Bll", "Lift.Bll\Lift.Bll.csproj", "{0ECA744C-1CE0-4A99-A89E-731BE2CFE2C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutop.Bll", "Gutop.Bll\Gutop.Bll.csproj", "{0ECA744C-1CE0-4A99-A89E-731BE2CFE2C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lift.Model", "Lift.Model\Lift.Model.csproj", "{1479D423-D3C0-470A-9FF7-77BD68C0A49A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutop.Model", "Gutop.Model\Gutop.Model.csproj", "{1479D423-D3C0-470A-9FF7-77BD68C0A49A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lift.Tools", "Lift.Tools\Lift.Tools.csproj", "{33077314-DC9A-4881-A11A-651D024FE5BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutop.Util", "Gutop.Util\Gutop.Util.csproj", "{33077314-DC9A-4881-A11A-651D024FE5BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lift.UI</RootNamespace>
-    <AssemblyName>Lift.UI</AssemblyName>
+    <RootNamespace>Gutop.Portal</RootNamespace>
+    <AssemblyName>Gutop.Portal</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -720,17 +720,17 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\Lift.Bll\Lift.Bll.csproj">
+    <ProjectReference Include="..\Gutop.Bll\Gutop.Bll.csproj">
       <Project>{0eca744c-1ce0-4a99-a89e-731be2cfe2c4}</Project>
-      <Name>Lift.Bll</Name>
+      <Name>Gutop.Bll</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lift.Model\Lift.Model.csproj">
+    <ProjectReference Include="..\Gutop.Model\Gutop.Model.csproj">
       <Project>{1479d423-d3c0-470a-9ff7-77bd68c0a49a}</Project>
-      <Name>Lift.Model</Name>
+      <Name>Gutop.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lift.Tools\Lift.Tools.csproj">
+    <ProjectReference Include="..\Gutop.Util\Gutop.Util.csproj">
       <Project>{33077314-dc9a-4881-a11a-651d024fe5bf}</Project>
-      <Name>Lift.Tools</Name>
+      <Name>Gutop.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

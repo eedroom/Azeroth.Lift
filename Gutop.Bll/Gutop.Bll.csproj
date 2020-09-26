@@ -7,8 +7,8 @@
     <ProjectGuid>{0ECA744C-1CE0-4A99-A89E-731BE2CFE2C4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lift.Bll</RootNamespace>
-    <AssemblyName>Lift.Bll</AssemblyName>
+    <RootNamespace>Gutop.Bll</RootNamespace>
+    <AssemblyName>Gutop.Bll</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -60,13 +60,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lift.Model\Lift.Model.csproj">
+    <ProjectReference Include="..\Gutop.Model\Gutop.Model.csproj">
       <Project>{1479d423-d3c0-470a-9ff7-77bd68c0a49a}</Project>
-      <Name>Lift.Model</Name>
+      <Name>Gutop.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lift.Tools\Lift.Tools.csproj">
+    <ProjectReference Include="..\Gutop.Util\Gutop.Util.csproj">
       <Project>{33077314-dc9a-4881-a11a-651d024fe5bf}</Project>
-      <Name>Lift.Tools</Name>
+      <Name>Gutop.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
