@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Castle.DynamicProxy;
 
-namespace Lift.UI.App_Start
+namespace Gutop.Portal.App_Start
 {
     /// <summary>
     /// 用于处理控制器的异常处理，审计日志

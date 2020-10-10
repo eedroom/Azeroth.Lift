@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lift.Tools
+namespace Gutop.Util
 {
     public class Class1
     {

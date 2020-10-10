@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lift.Model.Enum
+namespace Gutop.Model.Enum
 {
     public enum CacheIndex
     {

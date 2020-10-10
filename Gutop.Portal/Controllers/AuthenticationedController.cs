@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Filters;
 using System.Web.Routing;
-using Lift.Model;
+using Gutop.Model;
 
-namespace Lift.UI.Controllers
+namespace Gutop.Portal.Controllers
 {
     public class AuthenticationedController : Controller
     {

@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
-namespace Lift.Model
+namespace Gutop.Model
 {
   public partial class DbContext : System.Data.Entity.DbContext,Model.Autofac.IScoped
   {

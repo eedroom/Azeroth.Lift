@@ -8,7 +8,7 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Extras.DynamicProxy;
-namespace Lift.UI
+namespace Gutop.Portal
 {
     public class Global : System.Web.HttpApplication
     {
@@ -53,8 +53,8 @@ namespace Lift.UI
                 .PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies)
                 .InstancePerRequest()
                 .EnableClassInterceptors()
-                .InterceptedBy(typeof(UI.App_Start.AuditHandler))
-                .InterceptedBy(typeof(UI.App_Start.ExceptionHandler));
+                .InterceptedBy(typeof(App_Start.AuditHandler))
+                .InterceptedBy(typeof(App_Start.ExceptionHandler));
             var container = builder.Build();
             var resolver = new Autofac.Integration.Mvc.AutofacDependencyResolver(container);
             System.Web.Mvc.DependencyResolver.SetResolver(resolver);

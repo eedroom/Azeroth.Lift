@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Data.Entity;
-namespace Lift.Bll
+namespace Gutop.Bll
 {
     public class Bll<T>:Model.Autofac.ITransient where T:class
     {

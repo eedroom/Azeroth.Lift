@@ -16,7 +16,7 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
-namespace Lift.Model
+namespace Gutop.Model
 {
 <#
     string cnnstrName="master";

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lift.Model
+namespace Gutop.Model
 {
     public class Class1
     {

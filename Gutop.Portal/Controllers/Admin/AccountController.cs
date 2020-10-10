@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Lift.UI.Controllers.Admin
+namespace Gutop.Portal.Controllers.Admin
 {
     public class AccountController : Controller
     {

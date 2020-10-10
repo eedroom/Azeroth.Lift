@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Castle.DynamicProxy;
 
-namespace Lift.UI.App_Start
+namespace Gutop.Portal.App_Start
 {
     public abstract class InterceptedHandler : Castle.DynamicProxy.IInterceptor
     {

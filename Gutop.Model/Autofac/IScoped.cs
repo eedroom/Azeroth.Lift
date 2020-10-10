@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lift.Model.Autofac
+namespace Gutop.Model.Autofac
 {
     /// <summary>
     /// 单次web请求内为同一个实例
