@@ -8,12 +8,12 @@ namespace Gutop.Portal.App_Start
 {
     public abstract class InterceptedHandler : Castle.DynamicProxy.IInterceptor
     {
-        static Type ControllerMETA = typeof(System.Web.Mvc.Controller);
-        static Type ControllerBaseMETA = typeof(System.Web.Mvc.ControllerBase);
+        static Type ControllerMeta = typeof(System.Web.Mvc.Controller);
+        static Type ControllerBaseMeta = typeof(System.Web.Mvc.ControllerBase);
         public void Intercept(IInvocation invocation)
         {
-            if (invocation.Method.ReflectedType == ControllerMETA ||
-                invocation.Method.ReflectedType == ControllerBaseMETA)
+            if (invocation.Method.ReflectedType == ControllerMeta ||
+                invocation.Method.ReflectedType == ControllerBaseMeta)
             {
                 invocation.Proceed();
                 return;
