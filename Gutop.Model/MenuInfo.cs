@@ -30,12 +30,12 @@ namespace Lift.Model
         /// <summary>
         ///
         /// </summary>
-        [StringLength(500)]
+        [StringLength(192)]
         public String Url {set;get;}
         /// <summary>
         ///
         /// </summary>
-        [StringLength(200)]
+        [StringLength(192)]
         public String Ico {set;get;}
     }
 }

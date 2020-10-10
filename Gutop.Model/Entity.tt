@@ -29,7 +29,6 @@ namespace Lift.Model
 <# manager.EndBlock(); #>
 
 <#
-       return;
 	 //System.Diagnostics.Debugger.Launch();//---进入调试
      string cnnstrName="master";
     string configPath=Host.ResolveAssemblyReference("$(ProjectDir)")+"app.config";
