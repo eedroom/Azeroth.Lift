@@ -6,7 +6,7 @@ using Castle.DynamicProxy;
 
 namespace Lift.UI.App_Start
 {
-    public abstract class ControllerHandler : Castle.DynamicProxy.IInterceptor
+    public abstract class InterceptedHandler : Castle.DynamicProxy.IInterceptor
     {
         static Type ControllerMETA = typeof(System.Web.Mvc.Controller);
         static Type ControllerBaseMETA = typeof(System.Web.Mvc.ControllerBase);

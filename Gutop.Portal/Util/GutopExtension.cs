@@ -5,7 +5,7 @@ using System.Web;
 
 namespace System
 {
-    public static class AzerothExtension
+    public static class GutopExtension
     {
         public static object GetValue(this HttpSessionStateBase session,Lift.Model.Enum.SessionIndex index)
         {

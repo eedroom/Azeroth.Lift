@@ -702,10 +702,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ControllerExceptionHandler.cs" />
-    <Compile Include="App_Start\ControllerHandler.cs" />
-    <Compile Include="App_Start\ControllerLogHandler.cs" />
-    <Compile Include="Code\AzerothExtension.cs" />
+    <Compile Include="App_Start\ExceptionHandler.cs" />
+    <Compile Include="App_Start\InterceptedHandler.cs" />
+    <Compile Include="App_Start\AuditHandler.cs" />
+    <Compile Include="Util\GutopExtension.cs" />
     <Compile Include="Controllers\Admin\AccountController.cs" />
     <Compile Include="Controllers\AuthenticationedController.cs" />
     <Compile Include="Controllers\BootstrapController.cs" />

@@ -9,7 +9,7 @@ namespace Lift.UI.App_Start
     /// <summary>
     /// 用于处理控制器的异常处理，审计日志
     /// </summary>
-    public class ControllerExceptionHandler: ControllerHandler, Model.Autofac.ISingleton
+    public class ExceptionHandler: InterceptedHandler, Model.Autofac.ISingleton
     {
         protected override void Execute(IInvocation invocation)
         {

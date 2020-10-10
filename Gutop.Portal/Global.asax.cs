@@ -53,8 +53,8 @@ namespace Lift.UI
                 .PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies)
                 .InstancePerRequest()
                 .EnableClassInterceptors()
-                .InterceptedBy(typeof(UI.App_Start.ControllerLogHandler))
-                .InterceptedBy(typeof(UI.App_Start.ControllerExceptionHandler));
+                .InterceptedBy(typeof(UI.App_Start.AuditHandler))
+                .InterceptedBy(typeof(UI.App_Start.ExceptionHandler));
             var container = builder.Build();
             var resolver = new Autofac.Integration.Mvc.AutofacDependencyResolver(container);
             System.Web.Mvc.DependencyResolver.SetResolver(resolver);
