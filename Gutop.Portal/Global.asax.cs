@@ -53,11 +53,16 @@ namespace Gutop.Portal
                 .PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies)
                 .InstancePerRequest()
                 .EnableClassInterceptors()
-                .InterceptedBy(typeof(App_Start.AuditHandler))
-                .InterceptedBy(typeof(App_Start.ExceptionHandler));
+                .InterceptedBy(typeof(App_Start.InterceptedControllerHandler));
             var container = builder.Build();
             var resolver = new Autofac.Integration.Mvc.AutofacDependencyResolver(container);
             System.Web.Mvc.DependencyResolver.SetResolver(resolver);
+
+            //日志信息相关的处理
+            container.Resolve<Util.LogInfoHelper>().StartPersist();
+            
+            
+
         }
 
         public override void Init()

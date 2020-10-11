@@ -12,6 +12,9 @@ namespace Gutop.Portal.Controllers
     public class AuthenticationedController : Controller
     {
         public Bll.UserInfo BllUserInfo { get; set; }
+
+        public Model.DTO.UserInfo UserInfo { set; get; }
+
         static Func<string, bool, string> GetLoginPage = 
             (Func<string, bool, string>)System.Delegate.CreateDelegate(typeof(Func<string, bool, string>),
                 typeof(System.Web.Security.FormsAuthentication).GetMethod("GetLoginPage", 
@@ -21,7 +24,6 @@ namespace Gutop.Portal.Controllers
                     null));
         protected override void OnAuthentication(AuthenticationContext filterContext)
         {
-            return;
             //验证登陆
             if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
             {
@@ -36,6 +38,7 @@ namespace Gutop.Portal.Controllers
                 userInfo = this.BllUserInfo.GetEntity(x=>x.Id==id);
                 this.Session.SetValue(Model.Enum.SessionIndex.UserInfo, userInfo);
             }
+            this.UserInfo.LoginName = userInfo.LoginName;
             //滑动过期处理
             //System.Web.Security.FormsAuthentication.SetAuthCookie(filterContext.HttpContext.User.Identity.Name, true);
 

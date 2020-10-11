@@ -41,5 +41,11 @@ namespace Gutop.Bll
             return lst;
         }
 
+        public int Add(IEnumerable<T> lst)
+        {
+            this.dbcontext.Set<T>().AddRange(lst);
+            return this.dbcontext.SaveChanges();
+        }
+
     }
 }
