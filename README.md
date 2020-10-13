@@ -15,4 +15,4 @@ class B{
 
 var jsonstr=newton.json.jsonconvert.seriliaze(new A{Name="111",Age=3});
 
-B bobj=newton.json.jsonconvert.deseirliaze<B>(jsonstr);
+B bobj=newton.json.jsonconvert.deseirliaze《B》(jsonstr);
