@@ -57,15 +57,8 @@ namespace Gutop.Portal
             var container = builder.Build();
             var resolver = new Autofac.Integration.Mvc.AutofacDependencyResolver(container);
             System.Web.Mvc.DependencyResolver.SetResolver(resolver);
-
-
-
             //日志信息相关的处理
             Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Util.LogHelper>().StartPersist();
-            
-            
-            
-
         }
 
         public override void Init()

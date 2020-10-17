@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Gutop.Portal.Controllers
 {
-    public class HomeController : AuthenticationedController
+    public class HomeController : AuthenticationedController, Entity.IControllerIntercepted
     {
 
 

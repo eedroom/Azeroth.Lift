@@ -65,6 +65,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="IControllerIntercepted.cs" />
     <Compile Include="LogInfo.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>

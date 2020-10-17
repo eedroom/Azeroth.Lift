@@ -8,9 +8,10 @@ namespace Gutop.Portal.Util
     public class LogHelper: Gutop.Entity.Autofac.ISingleton
     {
         Guid id = Guid.NewGuid();
-        static System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.LogInfo> lstLogInfo = new System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.LogInfo>();
+        static System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.Log> lstLogInfo = new System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.Log>();
         static object logInfoLock = new object();
         static int initFlag = 0;
+        static bool LogHelperEnable = bool.Parse(System.Configuration.ConfigurationManager.AppSettings["LogHelper:Enable"]);
         Bll.Bll bll;
         string logFolder;
         public LogHelper()
@@ -20,8 +21,10 @@ namespace Gutop.Portal.Util
         }
         
 
-        public  void Add(Gutop.Entity.LogInfo entity)
+        public  void Add(Gutop.Entity.Log entity)
         {
+            if (!LogHelperEnable)
+                return;
             lstLogInfo.Enqueue(entity);
         }
 
@@ -29,6 +32,8 @@ namespace Gutop.Portal.Util
         {
             if (System.Threading.Interlocked.Exchange(ref initFlag, 1) != 0)
                 return;//已经执行过下面的代码了，避免因为调用多次这个方法就启动多个线程处理日志数据
+            if (!LogHelperEnable)
+                return;
             System.Threading.ThreadPool.QueueUserWorkItem(x =>
             {
                 while (true)
@@ -38,15 +43,15 @@ namespace Gutop.Portal.Util
                         System.Threading.Thread.Sleep(6 * 1000);
                         continue;
                     }
-                    List<Gutop.Entity.LogInfo> lst = new List<Gutop.Entity.LogInfo>();
-                    Gutop.Entity.LogInfo tmp;
+                    List<Gutop.Entity.Log> lst = new List<Gutop.Entity.Log>();
+                    Gutop.Entity.Log tmp;
                     while (lst.Count < 50 &&lstLogInfo.TryDequeue(out tmp))
                     {
                         lst.Add(tmp);
                     }
                     try
                     {
-                        this.bll.Add<Entity.LogInfo>(lst);
+                        this.bll.Add<Entity.Log>(lst);
                     }
                     catch (Exception ex)
                     {

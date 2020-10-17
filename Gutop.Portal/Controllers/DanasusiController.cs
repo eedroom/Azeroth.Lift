@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Gutop.Portal.Controllers
 {
-    public class DanasusiController : AuthenticationedController
+    public class DanasusiController : AuthenticationedController, Entity.IControllerIntercepted
     {
         // GET: Danasusi
         public ActionResult Youyingu()

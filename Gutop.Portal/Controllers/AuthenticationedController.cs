@@ -78,6 +78,5 @@ namespace Gutop.Portal.Controllers
             this.ViewData["__wrapperMenuInfo"] = wrapperMenuInfo;
 
         }
-
     }
 }

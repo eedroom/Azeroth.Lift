@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Gutop.Portal.Controllers
 {
-    public class EasyuiController : AuthenticationedController
+    public class EasyuiController : AuthenticationedController, Entity.IControllerIntercepted
     {
         // GET: Easyui
         public ActionResult DemoList()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gutop.Model
 {
-   public  class LogInfo:Entity.LogInfo
+   public  class LogInfo:Entity.Log
     {
     }
 }

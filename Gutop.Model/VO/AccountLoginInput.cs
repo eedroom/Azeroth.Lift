@@ -12,14 +12,14 @@ namespace Gutop.Model.VO
         /// 登陆用户名
         /// </summary>
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings =false,ErrorMessage ="必须指定用户名")]
-        [System.ComponentModel.DataAnnotations.MaxLength(100)]
+        [System.ComponentModel.DataAnnotations.MaxLength(6)]
         public string LoginName { get; set; }
 
         /// <summary>
         /// 登陆密码
         /// </summary>
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = false, ErrorMessage = "必须指定密码")]
-        [System.ComponentModel.DataAnnotations.MaxLength(100)]
+        [System.ComponentModel.DataAnnotations.MaxLength(6)]
         public string PassWord { get; set; }
 
         /// <summary>

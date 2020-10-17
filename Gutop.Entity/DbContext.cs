@@ -14,7 +14,7 @@ namespace Gutop.Entity
     /// <summary>
     /// 
     /// <summary>
-    public virtual DbSet<LogInfo> LogInfo { get; set; }
+    public virtual DbSet<Log> Log { get; set; }
     /// <summary>
     /// 
     /// <summary>

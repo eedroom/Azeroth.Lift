@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Gutop.Portal.Controllers.Admin
 {
-    public class AccountController : Controller
+    public class AccountController : Controller,Entity.IControllerIntercepted
     {
         // GET: Account
         public ActionResult Index()
@@ -14,7 +14,7 @@ namespace Gutop.Portal.Controllers.Admin
             return View();
         }
 
-        public ActionResult Login(Model.VO.AccountLoginInput parameter)
+        public virtual ActionResult Login(Model.VO.AccountLoginInput parameter)
         {
             var userInfo = new Model.UserInfo() { LoginName = parameter.LoginName };
             if (userInfo == null)

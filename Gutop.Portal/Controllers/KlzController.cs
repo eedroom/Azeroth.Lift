@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Gutop.Portal.Controllers
 {
-    public class KlzController : AuthenticationedController
+    public class KlzController : AuthenticationedController, Entity.IControllerIntercepted
     {
         // GET: Klz
         public ActionResult Wuye()

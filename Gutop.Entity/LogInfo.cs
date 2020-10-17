@@ -10,7 +10,7 @@ namespace Gutop.Entity
     /// 
     /// <summary>
     [Table("LogInfo")]
-    public partial class LogInfo
+    public partial class Log
     {
         /// <summary>
         ///
