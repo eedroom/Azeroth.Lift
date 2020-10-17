@@ -21,7 +21,7 @@ namespace Gutop.Portal.App_Start
             try
             {
                 var controller= invocation.Proxy as System.Web.Mvc.Controller;
-                if (controller.ModelState.IsValid)
+                if (!controller.ModelState.IsValid)
                     throw new ArgumentException(string.Join(";", controller.ModelState.Values.SelectMany(x => x.Errors.Select(a => a.ErrorMessage)).ToList()));
                 DateTime beginTime = DateTime.Now;
                 invocation.Proceed();
