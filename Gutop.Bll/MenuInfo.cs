@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gutop.Bll
 {
-    public class MenuInfo:Bll<Gutop.Entity.MenuInfo>
+    public class MenuInfo:Bll
     {
         public MenuInfo(Entity.DbContext dbcontext):base(dbcontext)
         {

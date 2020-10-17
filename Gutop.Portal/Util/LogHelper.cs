@@ -11,10 +11,12 @@ namespace Gutop.Portal.Util
         static System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.LogInfo> lstLogInfo = new System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.LogInfo>();
         static object logInfoLock = new object();
         static int initFlag = 0;
-        Bll.LogInfo bllLogInfo;
+        Bll.Bll bll;
+        string logFolder;
         public LogHelper()
         {
-            this.bllLogInfo =Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Bll.LogInfo>();
+            this.bll =Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Bll.Bll>();
+            this.logFolder = System.IO.Path.Combine(System.Web.HttpRuntime.AppDomainAppPath, "gutoplog");
         }
         
 
@@ -44,11 +46,13 @@ namespace Gutop.Portal.Util
                     }
                     try
                     {
-                        this.bllLogInfo.Add(lst);
+                        this.bll.Add<Entity.LogInfo>(lst);
                     }
                     catch (Exception ex)
                     {
                         //最后办法，写入本机文件中，或者windows事件日志中
+                        System.IO.File.WriteAllText(System.IO.Path.Combine(this.logFolder, DateTime.Now.ToString("yyyyMMddHHmmss")), ex.ToString());
+                        //System.Diagnostics.EventLog.WriteEntry好像需要在IIS把应用程序用localsystem用户运行
                         //System.Diagnostics.EventLog.WriteEntry("Gutop", "LogInfoHelper执行StartPersist保存日志信息到数据发送异常;异常明细信息如下" + ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
                     }
                 }

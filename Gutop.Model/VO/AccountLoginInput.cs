@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gutop.Model.VO
 {
-    public class LoginUserInfo
+    public class AccountLoginInput
     {
         /// <summary>
         /// 登陆用户名
@@ -21,5 +21,10 @@ namespace Gutop.Model.VO
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = false, ErrorMessage = "必须指定密码")]
         [System.ComponentModel.DataAnnotations.MaxLength(100)]
         public string PassWord { get; set; }
+
+        /// <summary>
+        /// 下次自动登陆
+        /// </summary>
+        public Nullable<bool> IsPersistent { get; set; }
     }
 }

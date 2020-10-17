@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Gutop.Model
 {
-    public class UserInfo : Gutop.Entity.UserInfo, Entity.Autofac.IScoped
+    public class UserInfo :Entity.Autofac.IScoped
     {
+        public string LoginName { get; set; }
+
+        public List<Entity.MenuInfo> MenuInfos{ get; set; }
+
     }
 }

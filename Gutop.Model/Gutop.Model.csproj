@@ -51,7 +51,7 @@
     <Compile Include="SessionIndex.cs" />
     <Compile Include="Treedata`.cs" />
     <Compile Include="UserInfo.cs" />
-    <Compile Include="VO\LoginUserInfo.cs" />
+    <Compile Include="VO\AccountLoginInput.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gutop.Entity\Gutop.Entity.csproj">

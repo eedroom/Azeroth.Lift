@@ -6,14 +6,12 @@ using System.Web.Mvc;
 using System.Web.Mvc.Filters;
 using System.Web.Routing;
 using Gutop.Entity;
-
+using Autofac;
 namespace Gutop.Portal.Controllers
 {
     public class AuthenticationedController : Controller
     {
-        public Bll.UserInfo BllUserInfo { get; set; }
-
-        public Gutop.Model.UserInfo UserInfo { set; get; }
+        public Bll.Bll bll { get; set; }
 
         static Func<string, bool, string> GetLoginPage = 
             (Func<string, bool, string>)System.Delegate.CreateDelegate(typeof(Func<string, bool, string>),
@@ -26,21 +24,20 @@ namespace Gutop.Portal.Controllers
         {
             if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
             {//验证登陆，微软的iis管道的认证模块会去解析cookie中的表单认证信息，如果ok，就会把对应的信息赋值到filterContext.HttpContext.User
+                //System.Web.Security.FormsAuthentication.RedirectToLoginPage();//这个在mvc的filter里面不适用
                 var loginurl = GetLoginPage(null, false);
                 filterContext.Result = this.Redirect(loginurl);
                 return;
             }
-            var userInfo = this.Session.GetValue(Model.SessionIndex.UserInfo) as Gutop.Entity.UserInfo;
-            if (userInfo == null)//session丢失或者过期，重新从数据库取
-            {
-                Guid id = Guid.Parse(filterContext.HttpContext.User.Identity.Name);
-                userInfo = this.BllUserInfo.GetEntity(x=>x.Id==id);
-                this.Session.SetValue(Model.SessionIndex.UserInfo, userInfo);
+            var formsIdentity = filterContext.HttpContext.User.Identity as System.Web.Security.FormsIdentity;
+            if (formsIdentity != null && formsIdentity.Ticket.IssueDate.AddMinutes(5)<DateTime.Now)
+            {//如果表单校验，超过5分钟就刷新表单校验cookie，默认策略是到期时间过半再刷新表单校验cookie
+                System.Web.Security.FormsAuthentication.SetAuthCookie(formsIdentity.Ticket.Name, formsIdentity.Ticket.IsPersistent);
             }
-            //this.UserInfo.LoginName = userInfo.LoginName;
-            //滑动过期处理
-            //System.Web.Security.FormsAuthentication.SetAuthCookie(filterContext.HttpContext.User.Identity.Name, true);
-
+            //处理当前登录用户的信息，借助ioc的scop生命周期，实现本次请求内的当前用户信息共享，
+            //传统的共享方式，借助session，
+            var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserInfo>();
+            
             
         }
 
