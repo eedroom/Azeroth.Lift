@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Gutop.Portal.Controllers.Admin
 {
-    public class AccountController : Controller,Entity.IControllerIntercepted
+    public class AccountController : GutopController, Entity.IControllerIntercepted
     {
         // GET: Account
         public ActionResult Index()

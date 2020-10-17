@@ -691,6 +691,7 @@
     <Content Include="Views\Easyui\DemoList.cshtml" />
     <Content Include="Views\Easyui\Tree.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -705,6 +706,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\InterceptedControllerHandler.cs" />
+    <Compile Include="Controllers\GutopController.cs" />
     <Compile Include="Util\GutopExtension.cs" />
     <Compile Include="Controllers\Admin\AccountController.cs" />
     <Compile Include="Controllers\AuthenticationedController.cs" />

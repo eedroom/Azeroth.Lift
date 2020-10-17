@@ -9,7 +9,7 @@ using Gutop.Entity;
 using Autofac;
 namespace Gutop.Portal.Controllers
 {
-    public class AuthenticationedController : Controller
+    public class AuthenticationedController : GutopController
     {
         public Bll.Bll bll { get; set; }
 

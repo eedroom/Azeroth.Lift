@@ -45,6 +45,7 @@
     <Compile Include="ApiResult`.cs" />
     <Compile Include="BizContext.cs" />
     <Compile Include="CacheIndex.cs" />
+    <Compile Include="ExceptionInterceptedWrapper.cs" />
     <Compile Include="LogInfo.cs" />
     <Compile Include="MenuInfoWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
