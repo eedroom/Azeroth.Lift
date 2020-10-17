@@ -22,9 +22,9 @@ namespace Gutop.Portal
                 defaults: new { controller = "Home", action = "Index" });
 
             //ioc和aop相关
-            Type flagIScoped = typeof(Model.Autofac.IScoped);
-            Type flagISingleton = typeof(Model.Autofac.ISingleton);
-            Type flagITransient = typeof(Model.Autofac.ITransient);
+            Type flagIScoped = typeof(Gutop.Entity.Autofac.IScoped);
+            Type flagISingleton = typeof(Gutop.Entity.Autofac.ISingleton);
+            Type flagITransient = typeof(Gutop.Entity.Autofac.ITransient);
             //bin目录下的所有的类型
             var lstType= System.Web.Compilation.BuildManager.GetReferencedAssemblies()
                 .Cast<System.Reflection.Assembly>()
@@ -58,8 +58,11 @@ namespace Gutop.Portal
             var resolver = new Autofac.Integration.Mvc.AutofacDependencyResolver(container);
             System.Web.Mvc.DependencyResolver.SetResolver(resolver);
 
+
+
             //日志信息相关的处理
-            container.Resolve<Util.LogInfoHelper>().StartPersist();
+            Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Util.LogInfoHelper>().StartPersist();
+            
             
             
 

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Model.Autofac
+namespace Gutop.Entity.Autofac
 {
     /// <summary>
-    /// 所有web请求为同一个实例
+    /// 单次web请求内为同一个实例
     /// </summary>
-    public interface ISingleton
+    public interface IScoped
     {
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Model.DTO
+namespace Gutop.Model
 {
     public class Treedata<T>
     {
@@ -15,9 +15,9 @@ namespace Gutop.Model.DTO
             this.children = new List<Treedata<T>>();
         }
 
-        public T value{ get; set; }
+        public T value { get; set; }
 
-        public Treedata<T> parent{ get; set; }
+        public Treedata<T> parent { get; set; }
 
         public List<Treedata<T>> children { set; get; }
 
@@ -31,7 +31,7 @@ namespace Gutop.Model.DTO
             List<Treedata<T>> lst = new List<Treedata<T>>();
             Queue<Treedata<T>> que = new Queue<Treedata<T>>();
             que.Enqueue(this);
-            while (que.Count>0)
+            while (que.Count > 0)
             {
                 var tmp = que.Dequeue();
                 lst.Add(tmp);

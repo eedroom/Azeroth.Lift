@@ -7,12 +7,12 @@ namespace System
 {
     public static class GutopExtension
     {
-        public static object GetValue(this HttpSessionStateBase session,Gutop.Model.Enum.SessionIndex index)
+        public static object GetValue(this HttpSessionStateBase session,Gutop.Model.SessionIndex index)
         {
             return session[index.ToString()];
         }
 
-        public static void SetValue(this HttpSessionStateBase session, Gutop.Model.Enum.SessionIndex index,object value)
+        public static void SetValue(this HttpSessionStateBase session, Gutop.Model.SessionIndex index,object value)
         {
             session[index.ToString()]=value;
         }

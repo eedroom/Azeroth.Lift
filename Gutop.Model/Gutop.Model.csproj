@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1479D423-D3C0-470A-9FF7-77BD68C0A49A}</ProjectGuid>
+    <ProjectGuid>{E0AB7C26-07EC-4A9E-B062-775655D12F0F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Gutop.Model</RootNamespace>
@@ -30,24 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.Entity.6.9.12\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,63 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Autofac\IScoped.cs" />
-    <Compile Include="Autofac\ISingleton.cs" />
-    <Compile Include="Autofac\ITransient.cs" />
-    <Compile Include="Class1.cs" />
-    <Compile Include="DbContext.cs">
-      <DependentUpon>DbContext.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="DTO\MenuInfoWrapper.cs" />
-    <Compile Include="DTO\Treedata.cs" />
-    <Compile Include="DTO\BizContext.cs" />
-    <Compile Include="DTO\UserInfo.cs" />
-    <Compile Include="Enum\CacheIndex.cs" />
-    <Compile Include="Enum\SessionIndex.cs" />
-    <Compile Include="LogInfo.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MenuInfo.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
+    <Compile Include="BizContext.cs" />
+    <Compile Include="CacheIndex.cs" />
+    <Compile Include="LogInfo.cs" />
+    <Compile Include="MenuInfoWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserInfo.cs">
-      <DependentUpon>Entity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VO\UserInfo.cs" />
+    <Compile Include="SessionIndex.cs" />
+    <Compile Include="Treedata`.cs" />
+    <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DbContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DbContext.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Entity.txt</LastGenOutput>
-    </Content>
-    <Content Include="Entity.txt">
-      <DependentUpon>Entity.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Content>
-    <Content Include="MultipleOutputHelper.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Gutop.Entity\Gutop.Entity.csproj">
+      <Project>{1479d423-d3c0-470a-9ff7-77bd68c0a49a}</Project>
+      <Name>Gutop.Entity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gutop.Util\Gutop.Util.csproj">
       <Project>{33077314-dc9a-4881-a11a-651d024fe5bf}</Project>
       <Name>Gutop.Util</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

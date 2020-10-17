@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Gutop.Bll
 {
-    public class UserInfo : Bll<Model.UserInfo>
+    public class UserInfo : Bll<Gutop.Entity.UserInfo>
     {
-        public UserInfo(Model.DbContext dbcontext):base(dbcontext)
+        public UserInfo(Entity.DbContext dbcontext):base(dbcontext)
         {
 
         }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Gutop.Bll
 {
-   public  class LogInfo: Bll<Model.LogInfo>
+   public  class LogInfo: Bll<Gutop.Entity.LogInfo>
     {
-        public LogInfo(Model.DbContext dbcontext):base(dbcontext)
+        public LogInfo(Entity.DbContext dbcontext):base(dbcontext)
         {
 
         }

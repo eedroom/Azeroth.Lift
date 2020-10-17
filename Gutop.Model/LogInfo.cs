@@ -1,33 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Spatial;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Gutop.Model
 {
-    /// <summary>
-    /// 
-    /// <summary>
-    [Table("LogInfo")]
-    public partial class LogInfo
+   public  class LogInfo:Entity.LogInfo
     {
-        /// <summary>
-        ///
-        /// </summary>
-        [Key]
-        public Guid Id {set;get;}
-        /// <summary>
-        ///
-        /// </summary>
-        [Required]
-        [StringLength(192)]
-        public String Source {set;get;}
-        /// <summary>
-        ///
-        /// </summary>
-        [Required]
-        [StringLength(65535)]
-        public String Message {set;get;}
     }
 }

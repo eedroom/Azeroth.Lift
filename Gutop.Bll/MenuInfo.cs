@@ -6,23 +6,23 @@ using System.Threading.Tasks;
 
 namespace Gutop.Bll
 {
-    public class MenuInfo:Bll<Model.MenuInfo>
+    public class MenuInfo:Bll<Gutop.Entity.MenuInfo>
     {
-        public MenuInfo(Model.DbContext dbcontext):base(dbcontext)
+        public MenuInfo(Entity.DbContext dbcontext):base(dbcontext)
         {
 
         }
         public int Init()
         {
            var lstMenu= System.Linq.Enumerable.Range(0, 10)
-                .Select(x => new Model.MenuInfo()
+                .Select(x => new Gutop.Entity.MenuInfo()
                 {
                     Id = Guid.NewGuid(),
                     Name = "menu" + x.ToString(),
                     Pid = Guid.Empty,
                     Url = "url" + x.ToString()
                 }).ToList();
-            this.dbcontext.Set<Model.MenuInfo>().AddRange(lstMenu);
+            this.dbcontext.Set<Gutop.Entity.MenuInfo>().AddRange(lstMenu);
             var rt = this.dbcontext.SaveChanges();
             return rt;
         }

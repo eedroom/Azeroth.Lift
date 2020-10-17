@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using Autofac;
 namespace Gutop.Portal.Util
 {
-    public class LogInfoHelper:Model.Autofac.ISingleton
+    public class LogInfoHelper: Gutop.Entity.Autofac.ISingleton
     {
-        static System.Collections.Concurrent.ConcurrentQueue<Model.LogInfo> lstLogInfo = new System.Collections.Concurrent.ConcurrentQueue<Model.LogInfo>();
+        Guid id = Guid.NewGuid();
+        static System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.LogInfo> lstLogInfo = new System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.LogInfo>();
         static object logInfoLock = new object();
         static int initFlag = 0;
         Bll.LogInfo bllLogInfo;
-        public LogInfoHelper(Bll.LogInfo bllLogInfo)
+        public LogInfoHelper()
         {
-            this.bllLogInfo = bllLogInfo;
+            this.bllLogInfo =Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Bll.LogInfo>();
         }
         
 
-        public  void Add(Model.LogInfo entity)
+        public  void Add(Gutop.Entity.LogInfo entity)
         {
             lstLogInfo.Enqueue(entity);
         }
@@ -35,8 +36,8 @@ namespace Gutop.Portal.Util
                         System.Threading.Thread.Sleep(6 * 1000);
                         continue;
                     }
-                    List<Model.LogInfo> lst = new List<Model.LogInfo>();
-                    Model.LogInfo tmp;
+                    List<Gutop.Entity.LogInfo> lst = new List<Gutop.Entity.LogInfo>();
+                    Gutop.Entity.LogInfo tmp;
                     while (lst.Count < 50 &&lstLogInfo.TryDequeue(out tmp))
                     {
                         lst.Add(tmp);
@@ -48,7 +49,7 @@ namespace Gutop.Portal.Util
                     catch (Exception ex)
                     {
                         //最后办法，写入本机文件中，或者windows事件日志中
-                        System.Diagnostics.EventLog.WriteEntry("Gutop", "LogInfoHelper执行StartPersist保存日志信息到数据发送异常;异常明细信息如下" + ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
+                        //System.Diagnostics.EventLog.WriteEntry("Gutop", "LogInfoHelper执行StartPersist保存日志信息到数据发送异常;异常明细信息如下" + ex.ToString(), System.Diagnostics.EventLogEntryType.Error);
                     }
                 }
             });

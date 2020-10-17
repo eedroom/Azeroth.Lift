@@ -6,15 +6,15 @@ using Castle.DynamicProxy;
 using Autofac;
 namespace Gutop.Portal.App_Start
 {
-    public  class InterceptedControllerHandler : Castle.DynamicProxy.IInterceptor,Model.Autofac.ISingleton
+    public  class InterceptedControllerHandler : Castle.DynamicProxy.IInterceptor, Gutop.Entity.Autofac.ISingleton
     {
         static Type ControllerMeta = typeof(System.Web.Mvc.Controller);
         static Type ControllerBaseMeta = typeof(System.Web.Mvc.ControllerBase);
         static Type AuthenticationedMeta = typeof(Controllers.AuthenticationedController);
-        Util.LogInfoHelper logInfoHelper;
-        public InterceptedControllerHandler(Util.LogInfoHelper logInfoHelper)
+        public Util.LogInfoHelper logInfoHelper { set; get; }
+        public InterceptedControllerHandler()
         {
-            this.logInfoHelper = logInfoHelper;
+            //this.logInfoHelper = Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Util.LogInfoHelper>();
         }
 
         public void Intercept(IInvocation invocation)
@@ -36,7 +36,7 @@ namespace Gutop.Portal.App_Start
             {
                 //发生异常一定记录日志，记录请求参数，方便开发复现和调试
                 var arguments = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(invocation.Arguments);
-                this.logInfoHelper.Add(new Model.LogInfo()
+                this.logInfoHelper.Add(new Gutop.Entity.LogInfo()
                 {
                     Id = Guid.NewGuid(),
                     Message = string.Format("请求发生异常,请求参数为{0},具体异常信息为:{1}", arguments, ex.ToString()),
@@ -48,9 +48,9 @@ namespace Gutop.Portal.App_Start
 
         private void ProcessAudit(IInvocation invocation, DateTime beginTime)
         {
-            var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.DTO.UserInfo>();
+            var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserInfo>();
             //审计日志，不需要要记录请求参数，记录每次请求的耗时，当前用户，url，方法等信息
-            this.logInfoHelper.Add(new Model.LogInfo()
+            this.logInfoHelper.Add(new Gutop.Entity.LogInfo()
             {
                 Id = Guid.NewGuid(),
                 Message = string.Format("请求耗时{0}s,请求的方法{1},当前用户{2}",Math.Round((DateTime.Now - beginTime).TotalSeconds,MidpointRounding.AwayFromZero),invocation.Method.Name,userInfo.LoginName),

@@ -7,12 +7,12 @@ using System.Linq.Expressions;
 using System.Data.Entity;
 namespace Gutop.Bll
 {
-    public class Bll<T>:Model.Autofac.ITransient where T:class
+    public class Bll<T>: Entity.Autofac.IScoped where T:class
     {
 
-        protected Model.DbContext dbcontext;
+        protected Entity.DbContext dbcontext;
 
-        public Bll(Model.DbContext dbcontext)
+        public Bll(Entity.DbContext dbcontext)
         {
             this.dbcontext = dbcontext;
         }

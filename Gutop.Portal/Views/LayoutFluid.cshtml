@@ -1,10 +1,10 @@
 ﻿@{
     Layout = null;
-    Gutop.Model.DTO.MenuInfoWrapper wrapperMenuInfo = (Gutop.Model.DTO.MenuInfoWrapper)this.ViewData["__wrapperMenuInfo"];
+    Gutop.Entity.DTO.MenuInfoWrapper wrapperMenuInfo = (Gutop.Entity.DTO.MenuInfoWrapper)this.ViewData["__wrapperMenuInfo"];
     wrapperMenuInfo.Value.ForEach(x => x.value.Url = x.GetAllChildren()
         .FirstOrDefault(a => !string.IsNullOrEmpty(a.value.Url))?.value.Url);
     var mathedNav =
-        wrapperMenuInfo.MathedItem?.GetRoot() ?? new Gutop.Model.DTO.Treedata<Gutop.Model.DTO.MenuInfo>(default(Gutop.Model.DTO.MenuInfo));
+        wrapperMenuInfo.MathedItem?.GetRoot() ?? new Gutop.Entity.DTO.Treedata<Gutop.Entity.DTO.MenuInfo>(default(Gutop.Entity.DTO.MenuInfo));
     mathedNav.GetAllChildren().ToList().ForEach(x => x.value.Url = string.IsNullOrEmpty(x.value.Url) ? default(string) : x.value.Url);
     int menuIndex = 0;
 }

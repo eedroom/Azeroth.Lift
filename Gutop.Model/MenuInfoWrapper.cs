@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Model.DTO
+namespace Gutop.Model
 {
     public class MenuInfoWrapper
     {
@@ -14,11 +14,11 @@ namespace Gutop.Model.DTO
 
 
 
-        public static List<DTO.MenuInfo> GetAll()
+        public static List<MenuInfo> GetAll()
         {
-            var lst = new List<DTO.MenuInfo>();
-            MenuInfo m0,m1,m2;
-            m0 = new MenuInfo() {  Id=Guid.NewGuid(), Pid=null, Name="经典旧世", Url=string.Empty};
+            var lst = new List<MenuInfo>();
+            MenuInfo m0, m1, m2;
+            m0 = new MenuInfo() { Id = Guid.NewGuid(), Pid = null, Name = "经典旧世", Url = string.Empty };
             lst.Add(m0);
             m1 = new MenuInfo() { Id = Guid.NewGuid(), Pid = m0.Id, Name = "达纳苏斯", Url = string.Empty };
             lst.Add(m1);
@@ -71,7 +71,7 @@ namespace Gutop.Model.DTO
         }
     }
 
-    public class MenuInfo:Model.MenuInfo
+    public class MenuInfo : Gutop.Entity.MenuInfo
     {
         /// <summary>
         /// 对应页面是否选中
