@@ -699,7 +699,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\InterceptedControllerHandler.cs" />
@@ -715,7 +717,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\LogInfoHelper.cs" />
+    <Compile Include="Util\LogHelper.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

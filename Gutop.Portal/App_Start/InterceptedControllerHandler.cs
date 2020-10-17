@@ -11,7 +11,7 @@ namespace Gutop.Portal.App_Start
         static Type ControllerMeta = typeof(System.Web.Mvc.Controller);
         static Type ControllerBaseMeta = typeof(System.Web.Mvc.ControllerBase);
         static Type AuthenticationedMeta = typeof(Controllers.AuthenticationedController);
-        public Util.LogInfoHelper logInfoHelper { set; get; }
+        public Util.LogHelper logInfoHelper { set; get; }
         public InterceptedControllerHandler()
         {
             //this.logInfoHelper = Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Util.LogInfoHelper>();

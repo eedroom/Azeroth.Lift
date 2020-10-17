@@ -24,10 +24,8 @@ namespace Gutop.Portal.Controllers
                     null));
         protected override void OnAuthentication(AuthenticationContext filterContext)
         {
-            this.UserInfo.LoginName = "eeroom";
-            //验证登陆
             if (!filterContext.HttpContext.User.Identity.IsAuthenticated)
-            {
+            {//验证登陆，微软的iis管道的认证模块会去解析cookie中的表单认证信息，如果ok，就会把对应的信息赋值到filterContext.HttpContext.User
                 var loginurl = GetLoginPage(null, false);
                 filterContext.Result = this.Redirect(loginurl);
                 return;

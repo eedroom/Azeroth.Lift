@@ -5,14 +5,14 @@ using System.Web;
 using Autofac;
 namespace Gutop.Portal.Util
 {
-    public class LogInfoHelper: Gutop.Entity.Autofac.ISingleton
+    public class LogHelper: Gutop.Entity.Autofac.ISingleton
     {
         Guid id = Guid.NewGuid();
         static System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.LogInfo> lstLogInfo = new System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.LogInfo>();
         static object logInfoLock = new object();
         static int initFlag = 0;
         Bll.LogInfo bllLogInfo;
-        public LogInfoHelper()
+        public LogHelper()
         {
             this.bllLogInfo =Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Bll.LogInfo>();
         }

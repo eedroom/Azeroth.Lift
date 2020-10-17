@@ -61,7 +61,7 @@ namespace Gutop.Portal
 
 
             //日志信息相关的处理
-            Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Util.LogInfoHelper>().StartPersist();
+            Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Util.LogHelper>().StartPersist();
             
             
             

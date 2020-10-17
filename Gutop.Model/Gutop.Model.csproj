@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiResult.cs" />
+    <Compile Include="ApiResult`.cs" />
     <Compile Include="BizContext.cs" />
     <Compile Include="CacheIndex.cs" />
     <Compile Include="LogInfo.cs" />
@@ -48,6 +51,7 @@
     <Compile Include="SessionIndex.cs" />
     <Compile Include="Treedata`.cs" />
     <Compile Include="UserInfo.cs" />
+    <Compile Include="VO\LoginUserInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gutop.Entity\Gutop.Entity.csproj">
