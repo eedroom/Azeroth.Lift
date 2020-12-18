@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Autofac;
+using Gutop.Model.Autofac;
+
 namespace Gutop.Portal.Util
 {
-    public class LogHelper: Gutop.Entity.Autofac.ISingleton
+    public class LogHelper: ISingleton
     {
         Guid id = Guid.NewGuid();
-        static System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.Log> lstLogInfo = new System.Collections.Concurrent.ConcurrentQueue<Gutop.Entity.Log>();
+        static System.Collections.Concurrent.ConcurrentQueue<Gutop.Model.Entity.Log> lstLogInfo = new System.Collections.Concurrent.ConcurrentQueue<Gutop.Model.Entity.Log>();
         static object logInfoLock = new object();
         static int initFlag = 0;
         static bool LogHelperEnable = bool.Parse(System.Configuration.ConfigurationManager.AppSettings["LogHelper:Enable"]);
@@ -21,7 +23,7 @@ namespace Gutop.Portal.Util
         }
         
 
-        public  void Add(Gutop.Entity.Log entity)
+        public  void Add(Gutop.Model.Entity.Log entity)
         {
             if (!LogHelperEnable)
                 return;
@@ -43,15 +45,15 @@ namespace Gutop.Portal.Util
                         System.Threading.Thread.Sleep(6 * 1000);
                         continue;
                     }
-                    List<Gutop.Entity.Log> lst = new List<Gutop.Entity.Log>();
-                    Gutop.Entity.Log tmp;
+                    List<Gutop.Model.Entity.Log> lst = new List<Gutop.Model.Entity.Log>();
+                    Gutop.Model.Entity.Log tmp;
                     while (lst.Count < 50 &&lstLogInfo.TryDequeue(out tmp))
                     {
                         lst.Add(tmp);
                     }
                     try
                     {
-                        this.bll.Add<Entity.Log>(lst);
+                        this.bll.Add<Gutop.Model.Entity.Log>(lst);
                     }
                     catch (Exception ex)
                     {

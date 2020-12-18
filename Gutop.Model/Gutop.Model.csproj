@@ -30,6 +30,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.12\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.12\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -43,8 +59,32 @@
   <ItemGroup>
     <Compile Include="ApiResult.cs" />
     <Compile Include="ApiResult`.cs" />
+    <Compile Include="Autofac\IScoped.cs" />
+    <Compile Include="Autofac\ISingleton.cs" />
+    <Compile Include="Autofac\ITransient.cs" />
     <Compile Include="BizContext.cs" />
     <Compile Include="CacheIndex.cs" />
+    <Compile Include="Entity\DbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Empoloyee.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Log.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\MenuInfo.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Organization.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\UserInfo.cs">
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IControllerIntercepted.cs" />
     <Compile Include="ExceptionInterceptedWrapper.cs" />
     <Compile Include="LogInfo.cs" />
     <Compile Include="MenuInfoWrapper.cs" />
@@ -55,14 +95,34 @@
     <Compile Include="VO\AccountLoginInput.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gutop.Entity\Gutop.Entity.csproj">
-      <Project>{1479d423-d3c0-470a-9ff7-77bd68c0a49a}</Project>
-      <Name>Gutop.Entity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Gutop.Util\Gutop.Util.csproj">
       <Project>{33077314-dc9a-4881-a11a-651d024fe5bf}</Project>
       <Name>Gutop.Util</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entity\DbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DbContext.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\Entity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Entity.txt</LastGenOutput>
+    </Content>
+    <Content Include="Entity\Entity.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Content>
+    <Content Include="Entity\MultipleOutputHelper.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -59,10 +59,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gutop.Entity\Gutop.Entity.csproj">
-      <Project>{1479d423-d3c0-470a-9ff7-77bd68c0a49a}</Project>
-      <Name>Gutop.Entity</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Gutop.Model\Gutop.Model.csproj">
       <Project>{e0ab7c26-07ec-4a9e-b062-775655d12f0f}</Project>
       <Name>Gutop.Model</Name>

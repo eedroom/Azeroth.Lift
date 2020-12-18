@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Filters;
 using System.Web.Routing;
-using Gutop.Entity;
 using Autofac;
 namespace Gutop.Portal.Controllers
 {
@@ -43,7 +42,6 @@ namespace Gutop.Portal.Controllers
 
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
-            //base.OnAuthorization(filterContext);
             //验证菜单,逻辑，以数据库菜单列表为基准，
             //如果被访问资源和菜单列表可以匹配上，就校验用户能否访问，否则忽略
             var lst = Gutop.Model.MenuInfoWrapper.GetAll();

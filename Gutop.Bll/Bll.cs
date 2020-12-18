@@ -5,14 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Data.Entity;
+using Gutop.Model.Autofac;
+
 namespace Gutop.Bll
 {
-    public class Bll: Entity.Autofac.IScoped 
+    public class Bll: IScoped 
     {
 
-        protected Entity.DbContext dbcontext;
+        protected Gutop.Model.Entity.DbContext dbcontext;
 
-        public Bll(Entity.DbContext dbcontext)
+        public Bll(Gutop.Model.Entity.DbContext dbcontext)
         {
             this.dbcontext = dbcontext;
         }

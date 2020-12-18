@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gutop.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Gutop.Portal.Controllers.Admin
 {
-    public class AccountController : GutopController, Entity.IControllerIntercepted
+    public class AccountController : GutopController, IControllerIntercepted
     {
         // GET: Account
         public ActionResult Index()

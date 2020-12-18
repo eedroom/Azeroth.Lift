@@ -13,14 +13,17 @@ namespace Gutop.Portal.Controllers
 
         protected override void OnException(ExceptionContext filterContext)
         {
+            
             var ex = filterContext.Exception as Model.ExceptionInterceptedWrapper;
             if (ex != null)
             {
                 filterContext.Result = this.OnException(filterContext, ex);
+                filterContext.ExceptionHandled = true;
                 return;
             }
-            this.LogHelper.Add(new Entity.Log() {  Id=Guid.NewGuid(), Message=filterContext.Exception.ToString(), Source=this.Request.Url.AbsolutePath});
+            this.LogHelper.Add(new Gutop.Model.Entity.Log() {  Id=Guid.NewGuid(), Message=filterContext.Exception.ToString(), Source=this.Request.Url.AbsolutePath});
             filterContext.Result = this.OnException(filterContext, new ExceptionInterceptedWrapper("服务器内部发生异常"));
+            filterContext.ExceptionHandled = true;
         }
 
         private ActionResult OnException(ExceptionContext filterContext, ExceptionInterceptedWrapper ex)

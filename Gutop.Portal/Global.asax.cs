@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Extras.DynamicProxy;
+using Gutop.Model.Autofac;
+
 namespace Gutop.Portal
 {
     public class Global : System.Web.HttpApplication
@@ -22,9 +24,9 @@ namespace Gutop.Portal
                 defaults: new { controller = "Home", action = "Index" });
 
             //ioc和aop相关
-            Type flagIScoped = typeof(Gutop.Entity.Autofac.IScoped);
-            Type flagISingleton = typeof(Gutop.Entity.Autofac.ISingleton);
-            Type flagITransient = typeof(Gutop.Entity.Autofac.ITransient);
+            Type flagIScoped = typeof(IScoped);
+            Type flagISingleton = typeof(ISingleton);
+            Type flagITransient = typeof(ITransient);
             //bin目录下的所有的类型
             var lstType= System.Web.Compilation.BuildManager.GetReferencedAssemblies()
                 .Cast<System.Reflection.Assembly>()

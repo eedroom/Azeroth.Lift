@@ -4,49 +4,40 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 
-namespace Gutop.Entity
+namespace Gutop.Model.Entity
 {
     /// <summary>
     /// 
     /// <summary>
-    [Table("UserInfo")]
-    public partial class UserInfo
+    [Table("Organization")]
+    public partial class Organization
     {
         /// <summary>
         ///
         /// </summary>
         [Key]
-        public Guid Id {set;get;}
+        public Int32 Id {set;get;}
         /// <summary>
         ///
         /// </summary>
         [Required]
         [StringLength(100)]
-        public String LoginName {set;get;}
+        public String Name {set;get;}
         /// <summary>
         ///
         /// </summary>
-        [StringLength(100)]
-        public String NikeName {set;get;}
+        public Nullable<Int32> Pid {set;get;}
         /// <summary>
         ///
         /// </summary>
-        [Required]
-        [StringLength(100)]
-        public String Password {set;get;}
+        public DateTime CreateTime {set;get;}
         /// <summary>
         ///
         /// </summary>
-        public Int32 RowState {set;get;}
+        public Int32 Creator {set;get;}
         /// <summary>
-        ///
+        ///0-公司;1-部门
         /// </summary>
-        [StringLength(20)]
-        public String Mobile {set;get;}
-        /// <summary>
-        ///
-        /// </summary>
-        [StringLength(200)]
-        public String Email {set;get;}
+        public Int32 Category {set;get;}
     }
 }

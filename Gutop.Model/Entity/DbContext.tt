@@ -16,12 +16,12 @@ using System.Data.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
-namespace Gutop.Entity
+namespace Gutop.Model.Entity
 {
 <#
     string cnnstrName="master";
     string nameClass= System.IO.Path.GetFileNameWithoutExtension(this.Host.TemplateFile);
-    this.WriteLine(string.Format("{0}public partial class {1} : System.Data.Entity.DbContext,Gutop.Entity.Autofac.IScoped",new String(' ',2),nameClass));
+    this.WriteLine(string.Format("{0}public partial class {1} : System.Data.Entity.DbContext,Gutop.Model.Autofac.IScoped",new String(' ',2),nameClass));
     this.WriteLine(new String(' ',2)+"{");
     this.WriteLine(string.Format("{0}public {1}() : base(\"name={2}\")",new String(' ',8),nameClass,cnnstrName));
  #>

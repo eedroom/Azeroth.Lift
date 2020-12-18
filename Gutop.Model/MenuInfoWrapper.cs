@@ -71,7 +71,7 @@ namespace Gutop.Model
         }
     }
 
-    public class MenuInfo : Gutop.Entity.MenuInfo
+    public class MenuInfo : Gutop.Model.Entity.MenuInfo
     {
         /// <summary>
         /// 对应页面是否选中

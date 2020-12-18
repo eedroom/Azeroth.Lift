@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Entity.Autofac
+namespace Gutop.Model.Autofac
 {
     /// <summary>
-    /// 单次web请求内各个实例都不同
+    /// 单次web请求内为同一个实例
     /// </summary>
-    public interface ITransient
+    public interface IScoped
     {
     }
 }
