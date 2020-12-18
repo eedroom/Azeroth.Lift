@@ -95,9 +95,9 @@
     <Compile Include="VO\AccountLoginInput.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gutop.Util\Gutop.Util.csproj">
+    <ProjectReference Include="..\Gutop.Utils\Gutop.Utils.csproj">
       <Project>{33077314-dc9a-4881-a11a-651d024fe5bf}</Project>
-      <Name>Gutop.Util</Name>
+      <Name>Gutop.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
