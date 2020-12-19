@@ -13,21 +13,19 @@ namespace Gutop.Portal.Controllers
 
         protected override void OnException(ExceptionContext filterContext)
         {
-            
-            var ex = filterContext.Exception as Model.ExceptionInterceptedWrapper;
-            if (ex != null)
-            {
-                filterContext.Result = this.OnException(filterContext, ex);
-                filterContext.ExceptionHandled = true;
-                return;
+            var gex = filterContext.Exception as Model.GutopRuntimeException;
+            if (gex == null) {
+                gex = new Model.GutopRuntimeException("未知", "发生未知异常",filterContext.Exception);
             }
-            var log= new Gutop.Model.Entity.Log() { Id = Guid.NewGuid(), Message = filterContext.Exception.ToString(), Source = this.Request.Url.AbsolutePath };
-            this.Logger.LogError("OnException",log);
-            filterContext.Result = this.OnException(filterContext, new ExceptionInterceptedWrapper("服务器内部发生异常"));
+            string eidName = gex.Method == null ? "未知" : gex.Method.DeclaringType.FullName + "." + gex.Method.Name;
+            EventId eid = new EventId(0, eidName);
+            this.Logger.LogError(eid, "请求地址{url},控制器入参{args}", this.Request.Url.AbsolutePath, gex.requestArgs);
+
+            filterContext.Result = this.OnException(filterContext, gex);
             filterContext.ExceptionHandled = true;
         }
 
-        private ActionResult OnException(ExceptionContext filterContext, ExceptionInterceptedWrapper ex)
+        private ActionResult OnException(ExceptionContext filterContext, Model.GutopRuntimeException ex)
         {
             if (filterContext.HttpContext.Request.IsAjaxRequest())
             {

@@ -31,7 +31,6 @@ namespace Gutop.Utils
             switch (logLevel)
             {
                 case LogLevel.Trace:
-                    
                     break;
                 case LogLevel.Debug:
                     this.logger.Debug("debug", exception);

@@ -68,15 +68,27 @@ namespace Gutop.Portal {
             //日志信息相关的处理
             var logFactory = Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Microsoft.Extensions.Logging.ILoggerFactory>();
             var logBll = Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Bll.Log>();
-            this.LogConfigure(logFactory,logBll);
+            this.LogConfigure(logFactory, logBll);
         }
 
-        static ConcurrentQueue<Gutop.Model.Entity.Log> logLst = new ConcurrentQueue<Gutop.Model.Entity.Log>();
+        static ConcurrentQueue<Model.Entity.Log> logLst = new ConcurrentQueue<Model.Entity.Log>();
         static int logSaveHandlerInitFlag = 0;
-        private void LogConfigure(Microsoft.Extensions.Logging.ILoggerFactory logFactory,Bll.Log logBll) {
+        private void LogConfigure(Microsoft.Extensions.Logging.ILoggerFactory logFactory, Bll.Log logBll) {
             logFactory.AddProvider(new Gutop.Utils.Log4netLoggerProvider());
-            logFactory.AddProvider(new Gutop.Utils.GutopLoggerProvider((loglevel, eventId, ex, msg) => {
-                //这里做转换然后保存到数据库
+            logFactory.AddProvider(new Gutop.Utils.GutopLoggerProvider(lw => {
+                Model.Entity.Log logInfo = new Model.Entity.Log() {
+                    CategoryName = lw.CategoryName,
+                    Content = lw.Content,
+                    CreateTime = DateTime.Now,
+                    EventId = lw.EventId.Id,
+                    EventName = lw.EventId.Name,
+                    Exception = lw.Exception.ToString(),
+                    LogLevel = (int)lw.LogLevel,
+                    Id = Guid.NewGuid()
+                };
+                var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserInfo>();
+                logInfo.Creator = userInfo.LoginName ?? "system";
+                logLst.Enqueue(logInfo);
             }));
             if (System.Threading.Interlocked.Exchange(ref logSaveHandlerInitFlag, 1) != 0)
                 return;//防御代码，已经执行过下面的代码了，避免因为调用多次这个方法就启动多个线程去保存

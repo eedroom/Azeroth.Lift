@@ -8,8 +8,8 @@ namespace Gutop.Utils
 {
     public class GutopLoggerProvider : Microsoft.Extensions.Logging.ILoggerProvider
     {
-        Action<LogLevel, EventId, Exception, string> adapterHandler;
-        public GutopLoggerProvider(Action<LogLevel, EventId, Exception, string> adapterHandler)
+        Action<LogWrapper> adapterHandler;
+        public GutopLoggerProvider(Action<LogWrapper> adapterHandler)
         {
             this.adapterHandler = adapterHandler;
         }

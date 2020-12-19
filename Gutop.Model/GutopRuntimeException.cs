@@ -8,15 +8,17 @@ namespace Gutop.Model
 {
      public class GutopRuntimeException:Exception
     {
-        public object requestParameter { get; set; }
+        public object requestArgs { get; set; }
 
-        public GutopRuntimeException(object parameter,string msg):base(msg)
+        public GutopRuntimeException(object args,string msg):base(msg)
         {
-            this.requestParameter = parameter;
+            this.requestArgs = args;
         }
-        public GutopRuntimeException(object parameter,string msg,Exception ex) : base(msg,ex)
+        public GutopRuntimeException(object args,string msg,Exception ex) : base(msg,ex)
         {
-            this.requestParameter = parameter;
+            this.requestArgs = args;
         }
+
+        public System.Reflection.MethodInfo Method { get; set; }
     }
 }

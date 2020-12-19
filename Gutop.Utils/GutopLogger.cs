@@ -9,8 +9,8 @@ namespace Gutop.Utils
     public class GutopLogger : Microsoft.Extensions.Logging.ILogger
     {
         string categoryName;
-        Action<LogLevel, EventId, Exception, string> adapterHandler;
-        public GutopLogger(string categoryName, Action<LogLevel, EventId, Exception, string> adapterHandler)
+        Action<LogWrapper> adapterHandler;
+        public GutopLogger(string categoryName, Action<LogWrapper> adapterHandler)
         {
             this.categoryName = categoryName;
             this.adapterHandler = adapterHandler;
@@ -28,10 +28,14 @@ namespace Gutop.Utils
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            string msg = string.Empty;
-            if (formatter != null)
-                msg = formatter(state, exception);
-            this.adapterHandler(logLevel, eventId, exception, msg);
+            LogWrapper lw = new LogWrapper() {
+                CategoryName = this.categoryName,
+                EventId = eventId,
+                Exception = exception,
+                LogLevel = logLevel,
+                 Content=formatter(state,exception)
+            };
+            this.adapterHandler(lw);
         }
     }
 }

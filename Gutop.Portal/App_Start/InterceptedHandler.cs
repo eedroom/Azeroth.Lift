@@ -10,6 +10,11 @@ namespace Gutop.Portal.App_Start
 {
     public  class InterceptedHandler : Castle.DynamicProxy.IInterceptor, ISingleton
     {
+        Microsoft.Extensions.Logging.ILogger<InterceptedHandler> logger;
+        public InterceptedHandler(Microsoft.Extensions.Logging.ILogger<InterceptedHandler> logger) {
+            this.logger = logger;
+        }
+
         public void Intercept(IInvocation invocation)
         {
             if (!invocation.Method.IsPublic)
@@ -26,11 +31,14 @@ namespace Gutop.Portal.App_Start
             }
             catch (Gutop.Model.GutopRuntimeException gex)
             {
+                if(gex.Method==null)
+                    gex.Method = invocation.MethodInvocationTarget;
                 throw gex;
             }
             catch (Exception ex)
             {
                 var gex = new Model.GutopRuntimeException(invocation.Arguments, "请查看内部异常详情", ex);
+                gex.Method = invocation.MethodInvocationTarget;
                 throw gex;
             }
         }
@@ -55,20 +63,10 @@ namespace Gutop.Portal.App_Start
         /// <param name="beginTime"></param>
         private void Audit(IInvocation invocation, DateTime beginTime)
         {
-            var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserInfo>();
-            //审计日志，不需要要记录请求参数，记录每次请求的耗时，当前用户，url，方法等信息
-            string msg = string.Format("请求耗时{0}s,请求的方法{1},当前用户{2}",
-                Math.Round((DateTime.Now - beginTime).TotalSeconds, MidpointRounding.AwayFromZero),
-                invocation.Method.Name,
-                userInfo.LoginName ?? "system");
-            var log = new Gutop.Model.Entity.Log()
-            {
-                Id = Guid.NewGuid(),
-                Message = msg,
-                Source = invocation.Method.Name,
-            };
-            var logger= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Microsoft.Extensions.Logging.ILogger<InterceptedHandler>>();
-            logger.LogInformation("Audit",log);
+            //审计日志，记录请求参数，记录每次请求的耗时，当前用户，url，方法等信息
+            int time = (int)(DateTime.Now - beginTime).TotalMilliseconds;
+            EventId eid = new EventId(time,invocation.MethodInvocationTarget.DeclaringType.FullName+"."+invocation.MethodInvocationTarget.Name);
+            logger.LogInformation(eid,"{args}",invocation.Arguments);
         }
     }
 }

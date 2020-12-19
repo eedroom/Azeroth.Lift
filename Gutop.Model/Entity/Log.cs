@@ -22,12 +22,45 @@ namespace Gutop.Model.Entity
         /// </summary>
         [Required]
         [StringLength(192)]
-        public String Source {set;get;}
+        public String CategoryName {set;get;}
         /// <summary>
         ///
         /// </summary>
         [Required]
         [StringLength(65535)]
-        public String Message {set;get;}
+        public String Content {set;get;}
+        /// <summary>
+        ///
+        /// </summary>
+        public Int32 LogLevel {set;get;}
+        /// <summary>
+        ///
+        /// </summary>
+        public Int32 EventId {set;get;}
+        /// <summary>
+        ///
+        /// </summary>
+        [StringLength(192)]
+        public String EventName {set;get;}
+        /// <summary>
+        ///
+        /// </summary>
+        [StringLength(65535)]
+        public String Exception {set;get;}
+        /// <summary>
+        ///
+        /// </summary>
+        [StringLength(36)]
+        public String BizId {set;get;}
+        /// <summary>
+        ///
+        /// </summary>
+        public DateTime CreateTime {set;get;}
+        /// <summary>
+        ///
+        /// </summary>
+        [Required]
+        [StringLength(255)]
+        public String Creator {set;get;}
     }
 }
