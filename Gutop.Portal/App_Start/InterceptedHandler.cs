@@ -5,13 +5,11 @@ using System.Web;
 using Castle.DynamicProxy;
 using Autofac;
 using Gutop.Model.Autofac;
-
+using Microsoft.Extensions.Logging;
 namespace Gutop.Portal.App_Start
 {
     public  class InterceptedHandler : Castle.DynamicProxy.IInterceptor, ISingleton
     {
-        public Bll.Log BllLog { set; get; }
-
         public void Intercept(IInvocation invocation)
         {
             if (!invocation.Method.IsPublic)
@@ -69,7 +67,8 @@ namespace Gutop.Portal.App_Start
                 Message = msg,
                 Source = invocation.Method.Name,
             };
-            this.BllLog.Add(log);
+            var logger= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Microsoft.Extensions.Logging.ILogger<InterceptedHandler>>();
+            logger.LogInformation("Audit",log);
         }
     }
 }

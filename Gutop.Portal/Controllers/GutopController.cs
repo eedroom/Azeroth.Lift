@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Gutop.Model;
-
+using Microsoft.Extensions.Logging;
 namespace Gutop.Portal.Controllers
 {
     public class GutopController : Controller
     {
-        public Bll.Log BllLog { set; get; }
+        public Microsoft.Extensions.Logging.ILogger<GutopController> Logger { set; get; }
 
         protected override void OnException(ExceptionContext filterContext)
         {
@@ -21,7 +21,8 @@ namespace Gutop.Portal.Controllers
                 filterContext.ExceptionHandled = true;
                 return;
             }
-            this.BllLog.Add(new Gutop.Model.Entity.Log() {  Id=Guid.NewGuid(), Message=filterContext.Exception.ToString(), Source=this.Request.Url.AbsolutePath});
+            var log= new Gutop.Model.Entity.Log() { Id = Guid.NewGuid(), Message = filterContext.Exception.ToString(), Source = this.Request.Url.AbsolutePath };
+            this.Logger.LogError("OnException",log);
             filterContext.Result = this.OnException(filterContext, new ExceptionInterceptedWrapper("服务器内部发生异常"));
             filterContext.ExceptionHandled = true;
         }
