@@ -9,7 +9,7 @@ namespace Gutop.Portal.Controllers
 {
     public class GutopController : Controller
     {
-        public Util.LogHelper LogHelper { set; get; }
+        public Bll.Log BllLog { set; get; }
 
         protected override void OnException(ExceptionContext filterContext)
         {
@@ -21,7 +21,7 @@ namespace Gutop.Portal.Controllers
                 filterContext.ExceptionHandled = true;
                 return;
             }
-            this.LogHelper.Add(new Gutop.Model.Entity.Log() {  Id=Guid.NewGuid(), Message=filterContext.Exception.ToString(), Source=this.Request.Url.AbsolutePath});
+            this.BllLog.Add(new Gutop.Model.Entity.Log() {  Id=Guid.NewGuid(), Message=filterContext.Exception.ToString(), Source=this.Request.Url.AbsolutePath});
             filterContext.Result = this.OnException(filterContext, new ExceptionInterceptedWrapper("服务器内部发生异常"));
             filterContext.ExceptionHandled = true;
         }

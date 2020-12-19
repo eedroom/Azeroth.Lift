@@ -84,6 +84,7 @@
     <Compile Include="Entity\UserInfo.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="GutopRuntimeException.cs" />
     <Compile Include="IControllerIntercepted.cs" />
     <Compile Include="ExceptionInterceptedWrapper.cs" />
     <Compile Include="LogInfo.cs" />

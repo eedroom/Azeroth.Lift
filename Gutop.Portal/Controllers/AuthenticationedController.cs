@@ -60,7 +60,10 @@ namespace Gutop.Portal.Controllers
             var dictRoutData= filterContext.RouteData.Values.ToDictionary(x => "{" + x.Key + "}", x => x.Value);
             //根据匹配的路由，还原url值，比如/反推回/home/index
             string url = route.Url;
-            dictRoutData.ForEach(x => url = url.Replace(x.Key, x.Value.ToString()));
+            foreach (var kv in dictRoutData)
+            {
+                url = url.Replace(kv.Key, kv.Value.ToString());
+            }
             url = url.ToLower();
 
             var mathedItem = lstMenuTree.FirstOrDefault(x => x.value.Url?.Contains(url)??false);

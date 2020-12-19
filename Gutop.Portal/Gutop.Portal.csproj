@@ -59,6 +59,10 @@
       <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -705,9 +709,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\InterceptedControllerHandler.cs" />
+    <Compile Include="App_Start\InterceptedHandler.cs" />
     <Compile Include="Controllers\GutopController.cs" />
-    <Compile Include="Util\GutopExtension.cs" />
     <Compile Include="Controllers\Admin\AccountController.cs" />
     <Compile Include="Controllers\AuthenticationedController.cs" />
     <Compile Include="Controllers\BootstrapController.cs" />
@@ -719,7 +722,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\LogHelper.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
