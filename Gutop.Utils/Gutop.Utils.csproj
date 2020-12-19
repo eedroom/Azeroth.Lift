@@ -57,7 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Audit.cs" />
     <Compile Include="GutopLogger.cs" />
     <Compile Include="GutopLoggerProvider.cs" />
     <Compile Include="Log4netLogger.cs" />
