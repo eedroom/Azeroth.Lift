@@ -58,10 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audit.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="GutopLogger.cs" />
     <Compile Include="GutopLoggerProvider.cs" />
-    <Compile Include="IIndex.cs" />
     <Compile Include="Log4netLogger.cs" />
     <Compile Include="Log4netLoggerProvider.cs" />
     <Compile Include="LogWrapper.cs" />
