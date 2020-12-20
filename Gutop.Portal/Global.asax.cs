@@ -87,7 +87,7 @@ namespace Gutop.Portal {
                     Id = Guid.NewGuid()
                 };
                 var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserWrapper>();
-                logInfo.Creator = userInfo.LoginName ?? "system";
+                logInfo.Creator = userInfo.User?.LoginName ?? "system";
                 logQueue.Enqueue(logInfo);
             }));
             if (System.Threading.Interlocked.Exchange(ref logSaveHandlerInitFlag, 1) != 0)

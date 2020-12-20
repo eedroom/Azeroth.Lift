@@ -8,10 +8,6 @@ namespace Gutop.Bll
 {
     public class MenuInfo:Bll
     {
-        public MenuInfo(Gutop.Model.Entity.DbContext dbcontext):base(dbcontext)
-        {
-
-        }
         public int Init()
         {
            var lstUrlMap= System.Linq.Enumerable.Range(0, 10)
@@ -22,8 +18,8 @@ namespace Gutop.Bll
                     Pid = Guid.Empty,
                     Action = "url" + x.ToString()
                 }).ToList();
-            this.dbcontext.Set<Gutop.Model.Entity.UrlMap>().AddRange(lstUrlMap);
-            var rt = this.dbcontext.SaveChanges();
+            this.DbContext.Set<Gutop.Model.Entity.UrlMap>().AddRange(lstUrlMap);
+            var rt = this.DbContext.SaveChanges();
             return rt;
         }
     }

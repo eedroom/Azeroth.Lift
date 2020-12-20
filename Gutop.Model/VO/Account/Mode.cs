@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Model.VO
-{
-    public class AccountLoginInput
-    {
+namespace Gutop.Model.VO.Account {
+    public class Login {
         /// <summary>
         /// 登陆用户名
         /// </summary>
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings =false,ErrorMessage ="必须指定用户名")]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = false, ErrorMessage = "必须指定用户名")]
         [System.ComponentModel.DataAnnotations.MaxLength(6)]
         public string LoginName { get; set; }
 

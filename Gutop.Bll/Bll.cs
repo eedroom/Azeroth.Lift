@@ -12,12 +12,7 @@ namespace Gutop.Bll
     public class Bll: IScoped 
     {
 
-        protected Gutop.Model.Entity.DbContext dbcontext;
-
-        public Bll(Gutop.Model.Entity.DbContext dbcontext)
-        {
-            this.dbcontext = dbcontext;
-        }
+        public Gutop.Model.Entity.DbContext DbContext { set; get; }
 
         /// <summary>
         /// 获取指定筛选条件的数据
@@ -27,26 +22,26 @@ namespace Gutop.Bll
         /// <returns></returns>
         public List<T> GetEntities<T>(Expression<Func<T,bool>> predicate) where T : class
         {
-            var lst= this.dbcontext.Set<T>().Where(predicate).ToList();
+            var lst= this.DbContext.Set<T>().Where(predicate).ToList();
             return lst;
         }
 
         public T GetEntity<T>(Expression<Func<T, bool>> predicate) where T : class
         {
-            var lst = this.dbcontext.Set<T>().Where(predicate).FirstOrDefault();
+            var lst = this.DbContext.Set<T>().Where(predicate).FirstOrDefault();
             return lst;
         }
 
         public List<T> GetEntities<T>() where T : class
         {
-            var lst = this.dbcontext.Set<T>().ToList();
+            var lst = this.DbContext.Set<T>().ToList();
             return lst;
         }
 
         public int Add<T>(IEnumerable<T> lst) where T : class
         {
-            this.dbcontext.Set<T>().AddRange(lst);
-            return this.dbcontext.SaveChanges();
+            this.DbContext.Set<T>().AddRange(lst);
+            return this.DbContext.SaveChanges();
         }
 
     }

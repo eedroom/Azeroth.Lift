@@ -10,7 +10,7 @@ namespace Gutop.Portal.Controllers
 {
     public class AuthenticationedController : ExceptionedController
     {
-        public Bll.Bll bll { get; set; }
+        public Bll.Bll Bll { get; set; }
 
         static Func<string, bool, string> GetLoginPage = 
             (Func<string, bool, string>)System.Delegate.CreateDelegate(typeof(Func<string, bool, string>),
@@ -29,15 +29,19 @@ namespace Gutop.Portal.Controllers
                 return;
             }
             var formsIdentity = filterContext.HttpContext.User.Identity as System.Web.Security.FormsIdentity;
-            if (formsIdentity != null && formsIdentity.Ticket.IssueDate.AddMinutes(5)<DateTime.Now)
-            {//如果表单校验，超过5分钟就刷新表单校验cookie，默认策略是到期时间过半再刷新表单校验cookie
-                System.Web.Security.FormsAuthentication.SetAuthCookie(formsIdentity.Ticket.Name, formsIdentity.Ticket.IsPersistent);
-            }
             //处理当前登录用户的信息，借助ioc的scop生命周期，实现本次请求内的当前用户信息共享，
-            //传统的共享方式，借助session，
-            var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserWrapper>();
-            
-            
+            //传统的共享方式，借助session，这里不采用
+            var userWrapper = Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserWrapper>();
+            var user= this.Bll.GetEntity<Model.Entity.User>(x => x.LoginName == formsIdentity.Name);
+            if (user == null) {
+                var loginurl = GetLoginPage(null, false);
+                filterContext.Result = this.Redirect(loginurl);
+                return;
+            }
+            userWrapper.User = user;
+            //如果表单校验，超过5分钟就刷新表单校验cookie，默认策略是到期时间过半再刷新表单校验cookie
+            if (formsIdentity != null && formsIdentity.Ticket.IssueDate.AddMinutes(5)<DateTime.Now)
+                System.Web.Security.FormsAuthentication.SetAuthCookie(formsIdentity.Ticket.Name, formsIdentity.Ticket.IsPersistent);
         }
 
         protected override void OnAuthorization(AuthorizationContext filterContext)

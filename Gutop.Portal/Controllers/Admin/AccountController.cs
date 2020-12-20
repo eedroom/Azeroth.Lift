@@ -9,20 +9,24 @@ namespace Gutop.Portal.Controllers.Admin
 {
     public class AccountController : ExceptionedController, IControllerIntercepted
     {
+        Bll.User bllUser;
+        public AccountController(Bll.User bllUser) {
+            this.bllUser = bllUser;
+        }
         // GET: Account
         public ActionResult Index()
         {
             return View();
         }
 
-        public virtual ActionResult Login(Model.VO.AccountLoginInput parameter)
+        public virtual ActionResult Login(Model.VO.Account.Login parameter)
         {
-            var userInfo = new Model.UserWrapper() { LoginName = parameter.LoginName };
-            if (userInfo == null)
+            Model.Entity.User user=null;
+            if (!this.bllUser.ValidLogin(parameter,out user))
                 return this.Json(Model.ApiResult.Error("用户名或密码错误"));
             //表单校验，写人信息
-            System.Web.Security.FormsAuthentication.SetAuthCookie(userInfo.LoginName, parameter.IsPersistent??false);
-            var targetUrl= System.Web.Security.FormsAuthentication.GetRedirectUrl(userInfo.LoginName, parameter.IsPersistent ?? false);
+            System.Web.Security.FormsAuthentication.SetAuthCookie(user.LoginName, parameter.IsPersistent??false);
+            var targetUrl= System.Web.Security.FormsAuthentication.GetRedirectUrl(user.LoginName, parameter.IsPersistent ?? false);
             return this.Json(Model.ApiResult.OK(new { targetUrl}));
         }
     }

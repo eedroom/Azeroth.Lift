@@ -9,8 +9,7 @@ namespace Gutop.Model
 {
     public class UserWrapper :IScoped
     {
-        public string LoginName { get; set; }
-
+        public Model.Entity.User User { get; set; }
         public List<Entity.UrlMap> MenuCollection{ get; set; }
 
     }
