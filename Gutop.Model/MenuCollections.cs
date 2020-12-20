@@ -17,6 +17,7 @@ namespace Gutop.Model
         public static List<UrlMapWrapper> GetAll()
         {
             var lst = new List<UrlMapWrapper>();
+            return lst;
             UrlMapWrapper m0, m1, m2;
             m0 = new UrlMapWrapper() { Id = Guid.NewGuid(), Pid = null, Description = "经典旧世", Url = string.Empty };
             lst.Add(m0);

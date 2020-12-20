@@ -3,9 +3,12 @@
     Gutop.Model.MenuCollections wrapperMenuInfo = (Gutop.Model.MenuCollections)this.ViewData["__wrapperMenuInfo"];
     wrapperMenuInfo.Value.ForEach(x => x.value.Url = x.GetAllChildren()
         .FirstOrDefault(a => !string.IsNullOrEmpty(a.value.Url))?.value.Url);
-    var mathedNav =
-        wrapperMenuInfo.MathedItem?.GetRoot() ?? new Gutop.Model.Treedata<Gutop.Model.UrlMapWrapper>(default(Gutop.Model.UrlMapWrapper));
-    mathedNav.GetAllChildren().ToList().ForEach(x => x.value.Url = string.IsNullOrEmpty(x.value.Url) ? default(string) : x.value.Url);
+    var mathedNav =wrapperMenuInfo.MathedItem?.GetRoot();
+    if (mathedNav != null) {
+        mathedNav.GetAllChildren().ToList().ForEach(x => x.value.Url = string.IsNullOrEmpty(x.value.Url) ? default(string) : x.value.Url);
+    } else {
+        mathedNav = new Gutop.Model.Treedata<Gutop.Model.UrlMapWrapper>(default(Gutop.Model.UrlMapWrapper));
+    }
     int menuIndex = 0;
 }
 

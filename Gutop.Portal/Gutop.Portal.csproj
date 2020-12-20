@@ -712,6 +712,7 @@
     <Content Include="Views\Easyui\Tree.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\UrlMap\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -726,6 +727,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\InterceptedHandler.cs" />
+    <Compile Include="Controllers\Admin\UrlMapController.cs" />
     <Compile Include="Controllers\Internal\ExceptionedController.cs" />
     <Compile Include="Controllers\Admin\AccountController.cs" />
     <Compile Include="Controllers\Internal\AuthenticationedController.cs" />
