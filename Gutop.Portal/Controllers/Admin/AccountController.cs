@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace Gutop.Portal.Controllers.Admin
 {
-    public class AccountController : GutopController, IControllerIntercepted
+    public class AccountController : ExceptionedController, IControllerIntercepted
     {
         // GET: Account
         public ActionResult Index()

@@ -7,9 +7,9 @@ using Gutop.Model;
 using Microsoft.Extensions.Logging;
 namespace Gutop.Portal.Controllers
 {
-    public class GutopController : Controller
+    public class ExceptionedController : Controller
     {
-        public Microsoft.Extensions.Logging.ILogger<GutopController> Logger { set; get; }
+        public Microsoft.Extensions.Logging.ILogger<ExceptionedController> Logger { set; get; }
 
         protected override void OnException(ExceptionContext filterContext)
         {

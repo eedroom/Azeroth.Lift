@@ -28,22 +28,29 @@ namespace Gutop.Utils
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
+            string msg = formatter(state, exception);
             switch (logLevel)
             {
                 case LogLevel.Trace:
+                    this.logger.Debug(msg, exception);
                     break;
                 case LogLevel.Debug:
-                    this.logger.Debug("debug", exception);
+                    this.logger.Debug(msg, exception);
                     break;
                 case LogLevel.Information:
+                    this.logger.Info(msg, exception);
                     break;
                 case LogLevel.Warning:
+                    this.logger.Warn(msg, exception);
                     break;
                 case LogLevel.Error:
+                    this.logger.Error(msg, exception);
                     break;
                 case LogLevel.Critical:
+                    this.logger.Fatal(msg, exception);
                     break;
                 case LogLevel.None:
+                    this.logger.Fatal(msg, exception);
                     break;
                 default:
                     break;

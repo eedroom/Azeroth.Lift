@@ -726,9 +726,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\InterceptedHandler.cs" />
-    <Compile Include="Controllers\GutopController.cs" />
+    <Compile Include="Controllers\Internal\ExceptionedController.cs" />
     <Compile Include="Controllers\Admin\AccountController.cs" />
-    <Compile Include="Controllers\AuthenticationedController.cs" />
+    <Compile Include="Controllers\Internal\AuthenticationedController.cs" />
     <Compile Include="Controllers\BootstrapController.cs" />
     <Compile Include="Controllers\DanasusiController.cs" />
     <Compile Include="Controllers\EasyuiController.cs" />

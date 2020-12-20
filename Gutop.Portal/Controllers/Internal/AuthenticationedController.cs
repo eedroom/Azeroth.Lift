@@ -8,7 +8,7 @@ using System.Web.Routing;
 using Autofac;
 namespace Gutop.Portal.Controllers
 {
-    public class AuthenticationedController : GutopController
+    public class AuthenticationedController : ExceptionedController
     {
         public Bll.Bll bll { get; set; }
 

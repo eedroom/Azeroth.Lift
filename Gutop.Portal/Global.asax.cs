@@ -116,7 +116,6 @@ namespace Gutop.Portal {
 
         public override void Init() {
             base.Init();
-  
         }
     }
 }
