@@ -36,8 +36,8 @@ namespace Gutop.Model.Entity
         /// </summary>
         public Int32 Creator {set;get;}
         /// <summary>
-        ///0-公司;1-部门
+        ///枚举|OrganizationCategory|0公司;1部门
         /// </summary>
-        public Int32 Category {set;get;}
+        public OrganizationCategory Category {set;get;}
     }
 }

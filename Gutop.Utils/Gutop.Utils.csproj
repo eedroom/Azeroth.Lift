@@ -62,6 +62,7 @@
     <Compile Include="Log4netLogger.cs" />
     <Compile Include="Log4netLoggerProvider.cs" />
     <Compile Include="LogWrapper.cs" />
+    <Compile Include="MyEqualityComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
