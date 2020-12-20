@@ -15,6 +15,7 @@ namespace Gutop.Portal.Controllers
         /// 如果这个方法需要被aop拦截，就加virtual修饰
         /// </summary>
         /// <returns></returns>
+        [Gutop.Model.UrlMap("首页", Model.Enum.UrlMapCategory.页面)]
         public virtual ActionResult Index()
         {
             return View();
@@ -38,6 +39,7 @@ namespace Gutop.Portal.Controllers
             return this.Json(new { total = 100, rows = lst }, JsonRequestBehavior.AllowGet);
         }
 
+        [Gutop.Model.UrlMap("伊利丹", Model.Enum.UrlMapCategory.页面)]
         public ActionResult Yilidan()
         {
             return this.View();

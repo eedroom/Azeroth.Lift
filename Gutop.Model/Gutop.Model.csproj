@@ -83,12 +83,15 @@
     <Compile Include="Entity\User.cs">
       <DependentUpon>Entity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Enum\OrganizationCategory.cs" />
+    <Compile Include="Enum\UrlMapCategory.cs" />
     <Compile Include="GutopRuntimeException.cs" />
     <Compile Include="IControllerIntercepted.cs" />
     <Compile Include="MenuCollections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionCategory.cs" />
     <Compile Include="Treedata`.cs" />
+    <Compile Include="UrlMapAttribute.cs" />
     <Compile Include="UrlMapWrapper.cs" />
     <Compile Include="UserWrapper.cs" />
     <Compile Include="VO\Account\Mode.cs" />

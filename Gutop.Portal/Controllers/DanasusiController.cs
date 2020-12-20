@@ -10,6 +10,7 @@ namespace Gutop.Portal.Controllers
     public class DanasusiController : AuthenticationedController, IControllerIntercepted
     {
         // GET: Danasusi
+        [Gutop.Model.UrlMap("幽影谷", Model.Enum.UrlMapCategory.页面)]
         public ActionResult Youyingu()
         {
             return View();

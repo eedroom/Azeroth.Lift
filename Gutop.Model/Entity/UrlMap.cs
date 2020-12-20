@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
-
+using Gutop.Model.Enum;
 namespace Gutop.Model.Entity
 {
     /// <summary>
@@ -49,5 +49,9 @@ namespace Gutop.Model.Entity
         /// </summary>
         [StringLength(255)]
         public String Remark {set;get;}
+        /// <summary>
+        ///枚举|UrlMapCategory|1页面，2api
+        /// </summary>
+        public UrlMapCategory Category {set;get;}
     }
 }
