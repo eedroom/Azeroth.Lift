@@ -713,6 +713,7 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\UrlMap\Index.cshtml" />
+    <Content Include="Assets\tzp.rar" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
