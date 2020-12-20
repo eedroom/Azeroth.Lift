@@ -9,8 +9,8 @@ namespace Gutop.Model.Entity
     /// <summary>
     /// 
     /// <summary>
-    [Table("UserInfo")]
-    public partial class UserInfo
+    [Table("User")]
+    public partial class User
     {
         /// <summary>
         ///

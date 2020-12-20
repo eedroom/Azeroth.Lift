@@ -14,15 +14,15 @@ namespace Gutop.Bll
         }
         public int Init()
         {
-           var lstMenu= System.Linq.Enumerable.Range(0, 10)
-                .Select(x => new Gutop.Model.Entity.MenuInfo()
+           var lstUrlMap= System.Linq.Enumerable.Range(0, 10)
+                .Select(x => new Gutop.Model.Entity.UrlMap()
                 {
                     Id = Guid.NewGuid(),
-                    Name = "menu" + x.ToString(),
+                    Description = "menu" + x.ToString(),
                     Pid = Guid.Empty,
-                    Url = "url" + x.ToString()
+                    Action = "url" + x.ToString()
                 }).ToList();
-            this.dbcontext.Set<Gutop.Model.Entity.MenuInfo>().AddRange(lstMenu);
+            this.dbcontext.Set<Gutop.Model.Entity.UrlMap>().AddRange(lstUrlMap);
             var rt = this.dbcontext.SaveChanges();
             return rt;
         }

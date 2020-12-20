@@ -9,8 +9,8 @@ namespace Gutop.Model.Entity
     /// <summary>
     /// 
     /// <summary>
-    [Table("MenuInfo")]
-    public partial class MenuInfo
+    [Table("UrlMap")]
+    public partial class UrlMap
     {
         /// <summary>
         ///
@@ -22,7 +22,7 @@ namespace Gutop.Model.Entity
         /// </summary>
         [Required]
         [StringLength(50)]
-        public String Name {set;get;}
+        public String Description {set;get;}
         /// <summary>
         ///
         /// </summary>
@@ -30,12 +30,24 @@ namespace Gutop.Model.Entity
         /// <summary>
         ///
         /// </summary>
+        [Required]
         [StringLength(192)]
-        public String Url {set;get;}
+        public String Controller {set;get;}
         /// <summary>
         ///
         /// </summary>
         [StringLength(192)]
         public String Ico {set;get;}
+        /// <summary>
+        ///
+        /// </summary>
+        [Required]
+        [StringLength(192)]
+        public String Action {set;get;}
+        /// <summary>
+        ///
+        /// </summary>
+        [StringLength(255)]
+        public String Remark {set;get;}
     }
 }

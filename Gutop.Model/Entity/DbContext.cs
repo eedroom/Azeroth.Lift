@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Gutop.Model.Entity
 {
-  public partial class DbContext : System.Data.Entity.DbContext,Gutop.Model.Autofac.IScoped
+  public partial class DbContext : System.Data.Entity.DbContext,Gutop.Model.Autofac.IScoped,Model.Autofac.ISingleton
   {
         public DbContext() : base("name=master")
         {
@@ -14,22 +14,22 @@ namespace Gutop.Model.Entity
     /// <summary>
     /// 
     /// <summary>
-    public virtual DbSet<Empoloyee> Empoloyee { get; set; }
+    public virtual DbSet<Gutop.Model.Entity.Log> Log { get; set; }
     /// <summary>
     /// 
     /// <summary>
-    public virtual DbSet<Log> Log { get; set; }
+    public virtual DbSet<Gutop.Model.Entity.Organization> Organization { get; set; }
     /// <summary>
     /// 
     /// <summary>
-    public virtual DbSet<MenuInfo> MenuInfo { get; set; }
+    public virtual DbSet<Gutop.Model.Entity.Staff> Staff { get; set; }
     /// <summary>
     /// 
     /// <summary>
-    public virtual DbSet<Organization> Organization { get; set; }
+    public virtual DbSet<Gutop.Model.Entity.UrlMap> UrlMap { get; set; }
     /// <summary>
     /// 
     /// <summary>
-    public virtual DbSet<UserInfo> UserInfo { get; set; }
+    public virtual DbSet<Gutop.Model.Entity.User> User { get; set; }
     }
 }

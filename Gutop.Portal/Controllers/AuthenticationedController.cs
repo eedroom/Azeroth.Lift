@@ -35,7 +35,7 @@ namespace Gutop.Portal.Controllers
             }
             //处理当前登录用户的信息，借助ioc的scop生命周期，实现本次请求内的当前用户信息共享，
             //传统的共享方式，借助session，
-            var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserInfo>();
+            var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserWrapper>();
             
             
         }
@@ -44,13 +44,13 @@ namespace Gutop.Portal.Controllers
         {
             //验证菜单,逻辑，以数据库菜单列表为基准，
             //如果被访问资源和菜单列表可以匹配上，就校验用户能否访问，否则忽略
-            var lst = Gutop.Model.MenuInfoWrapper.GetAll();
+            var lst = Gutop.Model.MenuCollections.GetAll();
             lst.ForEach(x => x.Url = x.Url?.ToLower());
-            var lstMenuTree = lst.Select(x => new Gutop.Model.Treedata<Gutop.Model.MenuInfo>(x))
+            var lstMenuTree = lst.Select(x => new Gutop.Model.Treedata<Gutop.Model.UrlMapWrapper>(x))
                 //.OrderBy(x=>x.value.Url?.Length)
                 .ToList();
             var dictMenu = lstMenuTree.ToDictionary(x => x.value.Id, x => x);
-            lstMenuTree.ForEach(x => x.parent = dictMenu.ContainsKey(x.value.Pid ?? Guid.Empty) ? dictMenu[x.value.Pid ?? Guid.Empty] : default(Gutop.Model.Treedata<Gutop.Model.MenuInfo>));
+            lstMenuTree.ForEach(x => x.parent = dictMenu.ContainsKey(x.value.Pid ?? Guid.Empty) ? dictMenu[x.value.Pid ?? Guid.Empty] : default(Gutop.Model.Treedata<Gutop.Model.UrlMapWrapper>));
             lstMenuTree.ForEach(x => x.parent?.children.Add(x));
             //根级的所有菜单菜单
             var lstNav = lstMenuTree.Where(x => x.parent == null).ToList();
@@ -72,7 +72,7 @@ namespace Gutop.Portal.Controllers
                 mathedItem.value.Active = true;
                 mathedItem.parent.value.Collapsing = true;
             }
-            Gutop.Model.MenuInfoWrapper wrapperMenuInfo = new Gutop.Model.MenuInfoWrapper() {
+            Gutop.Model.MenuCollections wrapperMenuInfo = new Gutop.Model.MenuCollections() {
                 Value = lstNav,
                  MathedItem= mathedItem
             };

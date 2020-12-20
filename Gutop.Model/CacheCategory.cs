@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gutop.Model
 {
-    public enum CacheIndex
+    public enum CacheCategory
     {
     }
 }

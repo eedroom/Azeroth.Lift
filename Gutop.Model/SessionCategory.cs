@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gutop.Model
 {
-    public enum SessionIndex
+    public enum SessionCategory
     {
         UserInfo,
     }

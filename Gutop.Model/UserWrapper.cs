@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Gutop.Model
 {
-    public class UserInfo :IScoped
+    public class UserWrapper :IScoped
     {
         public string LoginName { get; set; }
 
-        public List<Entity.MenuInfo> MenuInfos{ get; set; }
+        public List<Entity.UrlMap> MenuCollection{ get; set; }
 
     }
 }

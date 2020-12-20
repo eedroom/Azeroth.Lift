@@ -21,7 +21,7 @@ namespace Gutop.Model.Entity
 <#
     string cnnstrName="master";
     string nameClass= System.IO.Path.GetFileNameWithoutExtension(this.Host.TemplateFile);
-    this.WriteLine(string.Format("{0}public partial class {1} : System.Data.Entity.DbContext,Gutop.Model.Autofac.IScoped",new String(' ',2),nameClass));
+    this.WriteLine(string.Format("{0}public partial class {1} : System.Data.Entity.DbContext,Gutop.Model.Autofac.IScoped,Model.Autofac.ISingleton",new String(' ',2),nameClass));
     this.WriteLine(new String(' ',2)+"{");
     this.WriteLine(string.Format("{0}public {1}() : base(\"name={2}\")",new String(' ',8),nameClass,cnnstrName));
  #>
@@ -56,7 +56,7 @@ namespace Gutop.Model.Entity
             this.WriteLine(string.Format("{0}/// <summary>",new String(' ',4)));
             this.WriteLine(string.Format("{0}/// {1}",new String(' ',4),comment));
             this.WriteLine(string.Format("{0}/// <summary>",new String(' ',4)));
-            this.WriteLine(string.Format("{0}public virtual DbSet<{1}> {1} {2}",new String(' ',4),kv.Key,"{ get; set; }"));
+            this.WriteLine(string.Format("{0}public virtual DbSet<{1}> {3} {2}",new String(' ',4),"Gutop.Model.Entity."+kv.Key,"{ get; set; }",kv.Key));
         }
     }
  #>

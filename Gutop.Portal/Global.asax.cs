@@ -52,7 +52,7 @@ namespace Gutop.Portal {
             builder.RegisterType<Microsoft.Extensions.Logging.LoggerFactory>()
                 .As<Microsoft.Extensions.Logging.ILoggerFactory>()
                 .SingleInstance();
-            builder.RegisterType(typeof(Microsoft.Extensions.Logging.Logger<>))
+            builder.RegisterGeneric(typeof(Microsoft.Extensions.Logging.Logger<>))
                 .As(typeof(Microsoft.Extensions.Logging.ILogger<>))
                 .InstancePerDependency();
 
@@ -71,7 +71,7 @@ namespace Gutop.Portal {
             this.LogConfigure(logFactory, logBll);
         }
 
-        static ConcurrentQueue<Model.Entity.Log> logLst = new ConcurrentQueue<Model.Entity.Log>();
+        static ConcurrentQueue<Model.Entity.Log> logQueue = new ConcurrentQueue<Model.Entity.Log>();
         static int logSaveHandlerInitFlag = 0;
         private void LogConfigure(Microsoft.Extensions.Logging.ILoggerFactory logFactory, Bll.Log logBll) {
             logFactory.AddProvider(new Gutop.Utils.Log4netLoggerProvider());
@@ -82,13 +82,13 @@ namespace Gutop.Portal {
                     CreateTime = DateTime.Now,
                     EventId = lw.EventId.Id,
                     EventName = lw.EventId.Name,
-                    Exception = lw.Exception.ToString(),
+                    Exception = lw.Exception?.ToString(),
                     LogLevel = (int)lw.LogLevel,
                     Id = Guid.NewGuid()
                 };
-                var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserInfo>();
+                var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserWrapper>();
                 logInfo.Creator = userInfo.LoginName ?? "system";
-                logLst.Enqueue(logInfo);
+                logQueue.Enqueue(logInfo);
             }));
             if (System.Threading.Interlocked.Exchange(ref logSaveHandlerInitFlag, 1) != 0)
                 return;//防御代码，已经执行过下面的代码了，避免因为调用多次这个方法就启动多个线程去保存
@@ -96,16 +96,16 @@ namespace Gutop.Portal {
                 List<Gutop.Model.Entity.Log> lst = new List<Gutop.Model.Entity.Log>(50);
                 Gutop.Model.Entity.Log tmp;
                 while (true) {
-                    if (logLst.Count <= 0) {
+                    if (logQueue.Count <= 0) {
                         System.Threading.Thread.Sleep(10 * 1000);
                         continue;
                     }
                     lst.Clear();
-                    while (lst.Count < 50 && logLst.TryDequeue(out tmp)) {
+                    while (lst.Count < 50 && logQueue.TryDequeue(out tmp)) {
                         lst.Add(tmp);
                     }
                     try {
-                        logBll.Save(lst);
+                        logBll.Add(lst);
                     } catch (Exception ex) {
                         //最后办法，写入windows事件日志中，System.Diagnostics.EventLog.WriteEntry好像需要在IIS把应用程序用localsystem用户运行
                         System.Diagnostics.EventLog.WriteEntry("Gutop", "保存日志信息到数据库发生异常，详细信息:" + ex.ToString(), System.Diagnostics.EventLogEntryType.Error);

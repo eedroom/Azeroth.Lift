@@ -9,8 +9,8 @@ namespace Gutop.Model.Entity
     /// <summary>
     /// 
     /// <summary>
-    [Table("Empoloyee")]
-    public partial class Empoloyee
+    [Table("Staff")]
+    public partial class Staff
     {
         /// <summary>
         ///

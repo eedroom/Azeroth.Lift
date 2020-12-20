@@ -17,7 +17,7 @@ namespace Gutop.Portal.Controllers.Admin
 
         public virtual ActionResult Login(Model.VO.AccountLoginInput parameter)
         {
-            var userInfo = new Model.UserInfo() { LoginName = parameter.LoginName };
+            var userInfo = new Model.UserWrapper() { LoginName = parameter.LoginName };
             if (userInfo == null)
                 return this.Json(Model.ApiResult.Error("用户名或密码错误"));
             //表单校验，写人信息

@@ -8,8 +8,14 @@ namespace Gutop.Bll
 {
     public class Log:Model.Autofac.ISingleton
     {
-        public int Save(IList<Model.Entity.Log> lstLog) {
-            throw new NotImplementedException();
+        public Log(Model.Entity.DbContext dbContext) {
+            this.dbContext = dbContext;
+        }
+        Model.Entity.DbContext dbContext;
+
+        public int Add(IList<Model.Entity.Log> lstLog) {
+             this.dbContext.Log.AddRange(lstLog);
+            return this.dbContext.SaveChanges();
         }
     }
 }
