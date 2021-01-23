@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Gutop.Portal.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Gutop.UI.Global" Language="C#" %>

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Filters;
 using System.Web.Routing;
 using Autofac;
-namespace Gutop.Portal.Controllers
+namespace Gutop.UI.Controllers
 {
     public class AuthenticationedController : ExceptionedController
     {

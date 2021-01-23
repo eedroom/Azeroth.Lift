@@ -6,7 +6,7 @@ using Castle.DynamicProxy;
 using Autofac;
 using Gutop.Model.Autofac;
 using Microsoft.Extensions.Logging;
-namespace Gutop.Portal.App_Start
+namespace Gutop.UI.App_Start
 {
     public  class InterceptedHandler : Castle.DynamicProxy.IInterceptor, ISingleton
     {

@@ -12,7 +12,7 @@ using Gutop.Model.Autofac;
 using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
 
-namespace Gutop.Portal {
+namespace Gutop.UI {
     public class Global : System.Web.HttpApplication {
 
         protected void Application_Start(object sender, EventArgs e) {

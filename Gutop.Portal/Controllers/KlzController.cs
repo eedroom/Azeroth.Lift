@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Gutop.Portal.Controllers
+namespace Gutop.UI.Controllers
 {
     public class KlzController : AuthenticationedController, IControllerIntercepted
     {

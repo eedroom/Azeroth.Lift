@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Gutop.Model;
 using Microsoft.Extensions.Logging;
-namespace Gutop.Portal.Controllers
+namespace Gutop.UI.Controllers
 {
     public class ExceptionedController : Controller
     {

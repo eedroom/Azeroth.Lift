@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Gutop.Portal.Controllers.Admin
+namespace Gutop.UI.Controllers.Admin
 {
     public class AccountController : ExceptionedController, IControllerIntercepted
     {
