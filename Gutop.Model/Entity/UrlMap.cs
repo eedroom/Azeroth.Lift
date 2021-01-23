@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
 using Gutop.Model.Enum;
+using Azeroth.Util;
+
 namespace Gutop.Model.Entity
 {
     /// <summary>

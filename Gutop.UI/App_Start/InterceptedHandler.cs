@@ -6,6 +6,8 @@ using Castle.DynamicProxy;
 using Autofac;
 using Azeroth.Util.Autofac;
 using Microsoft.Extensions.Logging;
+using Azeroth.Util;
+
 namespace Gutop.UI.App_Start
 {
     public  class InterceptedHandler : Castle.DynamicProxy.IInterceptor, ISingleton
@@ -29,7 +31,7 @@ namespace Gutop.UI.App_Start
                 invocation.Proceed();
                 this.Audit(invocation, beginTime);
             }
-            catch (Gutop.Model.GutopRuntimeException gex)
+            catch (GutopRuntimeException gex)
             {
                 if(gex.Method==null)
                     gex.Method = invocation.MethodInvocationTarget;
@@ -37,7 +39,7 @@ namespace Gutop.UI.App_Start
             }
             catch (Exception ex)
             {
-                var gex = new Model.GutopRuntimeException(invocation.Arguments, "请查看内部异常详情", ex);
+                var gex = new GutopRuntimeException(invocation.Arguments, "请查看内部异常详情", ex);
                 gex.Method = invocation.MethodInvocationTarget;
                 throw gex;
             }
@@ -50,7 +52,7 @@ namespace Gutop.UI.App_Start
             if (controller.ModelState.IsValid)
                 return;
             string msg = string.Join(";", controller.ModelState.Values.SelectMany(x => x.Errors.Select(a => a.ErrorMessage)).ToList());
-            var gex = new Model.GutopRuntimeException(invocation.Arguments, msg);
+            var gex = new GutopRuntimeException(invocation.Arguments, msg);
             throw gex;
         }
 

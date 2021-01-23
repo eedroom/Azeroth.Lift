@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Model {
+namespace Azeroth.Util {
     public class UrlMapAttribute : System.Attribute {
-        public UrlMapAttribute(string des, Model.Enum.UrlMapCategory category) {
+        public UrlMapAttribute(string des, UrlMapCategory category) {
             this.Description = des;
             this.Category = category;
         }
         public string Description { get; set; }
 
-        public Model.Enum.UrlMapCategory Category { get; set; }
+        public UrlMapCategory Category { get; set; }
     }
 }

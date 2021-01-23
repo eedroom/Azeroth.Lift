@@ -1,12 +1,11 @@
-﻿using Gutop.Model.Enum;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Model {
+namespace Azeroth.Util {
     public class UrlMapWrapper {
         /// <summary>
         /// 对应页面是否选中

@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Model
-{
+namespace Azeroth.Util {
     public static class ApiResult
     {
         public static ApiResult<T> OK<T>(T data)
