@@ -97,9 +97,9 @@
     <Compile Include="VO\Account\Mode.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gutop.Utils\Gutop.Utils.csproj">
+    <ProjectReference Include="..\Gutop.Utils\Azeroth.Util.csproj">
       <Project>{33077314-dc9a-4881-a11a-651d024fe5bf}</Project>
-      <Name>Gutop.Utils</Name>
+      <Name>Azeroth.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

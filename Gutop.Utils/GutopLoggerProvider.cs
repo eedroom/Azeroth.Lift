@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.Extensions.Logging;
 
-namespace Gutop.Utils
-{
+namespace Azeroth.Util {
     public class GutopLoggerProvider : Microsoft.Extensions.Logging.ILoggerProvider
     {
         Action<LogWrapper> adapterHandler;

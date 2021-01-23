@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Utils {
+namespace Azeroth.Util {
     public class LogWrapper {
         public string Content { get; set; }
         public LogLevel LogLevel { get; set; }

@@ -39,7 +39,7 @@ namespace Gutop.UI.Controllers.Admin
                 Id = Guid.NewGuid(),
                 Pid = Guid.Empty
             }).ToList();
-            var cpHandler= new Gutop.Utils.MyEqualityComparer<Model.Entity.UrlMap>((a, b) => a.Controller == b.Controller && a.Action == b.Action);
+            var cpHandler= new Azeroth.Util.MyEqualityComparer<Model.Entity.UrlMap>((a, b) => a.Controller == b.Controller && a.Action == b.Action);
             var  lstAdd= lstUrlMapWithCode.Except(lstAll, cpHandler).ToList();
 
             this.Bll.Add<Model.Entity.UrlMap>(lstAdd);

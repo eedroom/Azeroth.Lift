@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.Extensions.Logging;
 
-namespace Gutop.Utils
-{
+namespace Azeroth.Util {
     public class Log4netLoggerProvider : Microsoft.Extensions.Logging.ILoggerProvider
     {
         public Log4netLoggerProvider()

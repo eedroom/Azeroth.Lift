@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Utils {
+namespace Azeroth.Util {
     public class MyEqualityComparer<T> : IEqualityComparer<T> {
         Func<T, T, bool> handler;
         public MyEqualityComparer(Func<T,T,bool> handler) {

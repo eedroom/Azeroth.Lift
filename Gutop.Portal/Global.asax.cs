@@ -74,8 +74,8 @@ namespace Gutop.UI {
         static ConcurrentQueue<Model.Entity.Log> logQueue = new ConcurrentQueue<Model.Entity.Log>();
         static int logSaveHandlerInitFlag = 0;
         private void LogConfigure(Microsoft.Extensions.Logging.ILoggerFactory logFactory, Bll.Log logBll) {
-            logFactory.AddProvider(new Gutop.Utils.Log4netLoggerProvider());
-            logFactory.AddProvider(new Gutop.Utils.GutopLoggerProvider(lw => {
+            logFactory.AddProvider(new Azeroth.Util.Log4netLoggerProvider());
+            logFactory.AddProvider(new Azeroth.Util.GutopLoggerProvider(lw => {
                 Model.Entity.Log logInfo = new Model.Entity.Log() {
                     CategoryName = lw.CategoryName,
                     Content = lw.Content,

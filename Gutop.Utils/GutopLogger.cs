@@ -4,8 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.Extensions.Logging;
 
-namespace Gutop.Utils
-{
+namespace Azeroth.Util {
     public class GutopLogger : Microsoft.Extensions.Logging.ILogger
     {
         string categoryName;
