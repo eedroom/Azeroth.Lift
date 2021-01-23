@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutop.UI", "Gutop.Portal\Gutop.UI.csproj", "{A2AF8BF7-A27B-46A1-98C7-1F7863A5EAFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutop.UI", "Gutop.UI\Gutop.UI.csproj", "{A2AF8BF7-A27B-46A1-98C7-1F7863A5EAFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutop.Bll", "Gutop.Bll\Gutop.Bll.csproj", "{0ECA744C-1CE0-4A99-A89E-731BE2CFE2C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.Util", "Gutop.Utils\Azeroth.Util.csproj", "{33077314-DC9A-4881-A11A-651D024FE5BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azeroth.Util", "Azeroth.Util\Azeroth.Util.csproj", "{33077314-DC9A-4881-A11A-651D024FE5BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gutop.Model", "Gutop.Model\Gutop.Model.csproj", "{E0AB7C26-07EC-4A9E-B062-775655D12F0F}"
 EndProject
