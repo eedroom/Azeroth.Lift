@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gutop.Model.Autofac
+namespace Azeroth.Util.Autofac
 {
     /// <summary>
     /// 所有web请求为同一个实例

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Gutop.Model.Entity
 {
-  public partial class DbContext : System.Data.Entity.DbContext,Gutop.Model.Autofac.IScoped,Model.Autofac.ISingleton
+  public partial class DbContext : System.Data.Entity.DbContext,Azeroth.Util.Autofac.IScoped,Azeroth.Util.Autofac.ISingleton
   {
         public DbContext() : base("name=master")
         {

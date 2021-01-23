@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Castle.DynamicProxy;
 using Autofac;
-using Gutop.Model.Autofac;
+using Azeroth.Util.Autofac;
 using Microsoft.Extensions.Logging;
 namespace Gutop.UI.App_Start
 {

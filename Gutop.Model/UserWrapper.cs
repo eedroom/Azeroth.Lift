@@ -1,4 +1,4 @@
-﻿using Gutop.Model.Autofac;
+﻿using Azeroth.Util.Autofac;
 using System;
 using System.Collections.Generic;
 using System.Linq;

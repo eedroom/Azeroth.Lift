@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Data.Entity;
-using Gutop.Model.Autofac;
+using Azeroth.Util.Autofac;
 
 namespace Gutop.Bll
 {

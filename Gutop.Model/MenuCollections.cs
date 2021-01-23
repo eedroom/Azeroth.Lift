@@ -8,9 +8,9 @@ namespace Gutop.Model
 {
     public class MenuCollections
     {
-        public Treedata<UrlMapWrapper> MathedItem { get; set; }
+        public Azeroth.Util.TreeNode<UrlMapWrapper> MathedItem { get; set; }
 
-        public List<Treedata<UrlMapWrapper>> Value { get; set; }
+        public List<Azeroth.Util.TreeNode<UrlMapWrapper>> Value { get; set; }
 
 
 

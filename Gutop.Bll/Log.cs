@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gutop.Bll
 {
-    public class Log:Model.Autofac.ISingleton
+    public class Log: Azeroth.Util.Autofac.ISingleton
     {
         public Log(Model.Entity.DbContext dbContext) {
             this.dbContext = dbContext;
