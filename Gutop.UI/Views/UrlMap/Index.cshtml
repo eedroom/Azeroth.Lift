@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "同步UrlMap";
+    Layout = "~/Views/LayoutFluid.cshtml";
+    var lstUrlMap = this.ViewData["lstUrlMap"] as List<Gutop.Model.Entity.UrlMap>;
+}
+
+<div>
+    <form method="get">
+        <input type="hidden" name="act" value="sync" />
+        <input type="submit" value="同步" />
+    </form>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Controller</th>
+            <th>Action</th>
+            <th>Category</th>
+            <th>Ico</th>
+            <th>Pid</th>
+            <th>Remark</th>
+        </tr>
+        @{ 
+            foreach (var urlMap in lstUrlMap) {
+                <tr>
+                    <td>@(urlMap.Id)</td>
+                    <td>@(urlMap.Description)</td>
+                    <td>@(urlMap.Controller)</td>
+                    <td>@(urlMap.Action)</td>
+                    <td>@(urlMap.Category)</td>
+                    <td>@(urlMap.Ico)</td>
+                    <td>@(urlMap.Pid)</td>
+                    <td>@(urlMap.Remark)</td>
+                </tr>
+            }
+        }
+    </table>
+</div>

@@ -21,7 +21,7 @@ namespace Gutop.Model.Entity
 <#
     string cnnstrName="master";
     string nameClass= System.IO.Path.GetFileNameWithoutExtension(this.Host.TemplateFile);
-    this.WriteLine(string.Format("{0}public partial class {1} : System.Data.Entity.DbContext,Azeroth.Util.Autofac.IScoped,Azeroth.Util.Autofac.ISingleton",new String(' ',2),nameClass));
+    this.WriteLine(string.Format("{0}public partial class {1} : System.Data.Entity.DbContext,Azeroth.Util.Autofac.IScoped",new String(' ',2),nameClass));
     this.WriteLine(new String(' ',2)+"{");
     this.WriteLine(string.Format("{0}public {1}() : base(\"name={2}\")",new String(' ',8),nameClass,cnnstrName));
  #>
