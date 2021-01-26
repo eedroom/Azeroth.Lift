@@ -9,7 +9,6 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Extras.DynamicProxy;
 using Azeroth.Util.Autofac;
-using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
 
 namespace Gutop.UI {
@@ -49,12 +48,12 @@ namespace Gutop.UI {
                 .PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies)
                 .InstancePerDependency();
 
-            builder.RegisterType<Microsoft.Extensions.Logging.LoggerFactory>()
-                .As<Microsoft.Extensions.Logging.ILoggerFactory>()
-                .SingleInstance();
-            builder.RegisterGeneric(typeof(Microsoft.Extensions.Logging.Logger<>))
-                .As(typeof(Microsoft.Extensions.Logging.ILogger<>))
-                .InstancePerDependency();
+            //builder.RegisterType<Microsoft.Extensions.Logging.LoggerFactory>()
+            //    .As<Microsoft.Extensions.Logging.ILoggerFactory>()
+            //    .SingleInstance();
+            //builder.RegisterGeneric(typeof(Microsoft.Extensions.Logging.Logger<>))
+            //    .As(typeof(Microsoft.Extensions.Logging.ILogger<>))
+            //    .InstancePerDependency();
 
             builder.RegisterControllers(System.Reflection.Assembly.GetExecutingAssembly())
                 .AsSelf()
@@ -66,29 +65,12 @@ namespace Gutop.UI {
             var resolver = new Autofac.Integration.Mvc.AutofacDependencyResolver(container);
             System.Web.Mvc.DependencyResolver.SetResolver(resolver);
             //日志信息相关的处理
-            var logFactory = Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Microsoft.Extensions.Logging.ILoggerFactory>();
-            this.LogConfigure(logFactory, new Bll.Log(new Model.Entity.DbContext()));
+            this.LogConfigure(new Bll.Log(new Model.Entity.DbContext()));
         }
 
         static ConcurrentQueue<Model.Entity.Log> logQueue = new ConcurrentQueue<Model.Entity.Log>();
         static int logSaveHandlerInitFlag = 0;
-        private void LogConfigure(Microsoft.Extensions.Logging.ILoggerFactory logFactory, Bll.Log logBll) {
-            logFactory.AddProvider(new Azeroth.Util.Log4netLoggerProvider());
-            logFactory.AddProvider(new Azeroth.Util.GutopLoggerProvider(lw => {
-                Model.Entity.Log logInfo = new Model.Entity.Log() {
-                    CategoryName = lw.CategoryName,
-                    Content = lw.Content,
-                    CreateTime = DateTime.Now,
-                    EventId = lw.EventId.Id,
-                    EventName = lw.EventId.Name,
-                    Exception = lw.Exception?.ToString(),
-                    LogLevel = (int)lw.LogLevel,
-                    Id = Guid.NewGuid()
-                };
-                var userInfo= Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserWrapper>();
-                logInfo.Creator = userInfo.User?.LoginName ?? "system";
-                logQueue.Enqueue(logInfo);
-            }));
+        private void LogConfigure(Bll.Log logBll) {
             if (System.Threading.Interlocked.Exchange(ref logSaveHandlerInitFlag, 1) != 0)
                 return;//防御代码，已经执行过下面的代码了，避免因为调用多次这个方法就启动多个线程去保存
             System.Threading.ThreadPool.QueueUserWorkItem(x => {

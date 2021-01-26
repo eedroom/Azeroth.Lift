@@ -59,37 +59,21 @@
       <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.1.1.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.1.1\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.Logging.1.1.2\lib\netstandard1.1\Microsoft.Extensions.Logging.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=1.1.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.1.1.2\lib\netstandard1.1\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
@@ -132,6 +116,43 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Assets\Bootstrap3.3.7\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\Bootstrap3.3.7\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\accordion\datagrid_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\combobox\combobox_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\combobox\combobox_data2.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\combogrid\datagrid_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\combotree\tree_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\combotreegrid\treegrid_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\datagrid\datagrid_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\datagrid\datagrid_data2.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\datagrid\products.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\datalist\datalist_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\form\form_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\layout\datagrid_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\layout\propertygrid_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\layout\tree_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\propertygrid\propertygrid_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\tabs\tree_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\tagbox\tagbox_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\tree\tree_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\tree\tree_data2.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\treegrid\treegrid_data1.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\treegrid\treegrid_data2.json" />
+    <Content Include="Assets\jquery-easyui-1.5.2\demo\treegrid\treegrid_data3.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\bootstrap-table-1.11.1\bootstrap-table-locale-all.js" />
@@ -657,93 +678,57 @@
     <Content Include="Assets\jquery-easyui-1.5.2\themes\default\window.css" />
     <Content Include="Assets\jquery-easyui-1.5.2\themes\icon.css" />
     <Content Include="Assets\jquery-easyui-1.5.2\themes\mobile.css" />
+    <None Include="Assets\jQuey\jquery-1.11.3.intellisense.js" />
+    <Content Include="Assets\jQuey\jquery-1.11.3.js" />
+    <Content Include="Assets\jQuey\jquery-1.11.3.min.js" />
+    <None Include="Assets\jQuey\jquery-1.9.1.intellisense.js" />
+    <Content Include="Assets\jQuey\jquery-1.9.1.js" />
+    <Content Include="Assets\jQuey\jquery-1.9.1.min.js" />
     <Content Include="Assets\js\html5shiv.min.js" />
     <Content Include="Assets\js\ie-emulation-modes-warning.js" />
     <Content Include="Assets\js\ie10-viewport-bug-workaround.js" />
     <Content Include="Assets\js\ie8-responsive-file-warning.js" />
     <Content Include="Assets\js\respond.min.js" />
     <Content Include="Global.asax" />
-    <Content Include="packages.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Assets\Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Assets\Bootstrap3.3.7\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Assets\Bootstrap3.3.7\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Assets\Bootstrap3.3.7\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\accordion\datagrid_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\combobox\combobox_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\combobox\combobox_data2.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\combogrid\datagrid_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\combotreegrid\treegrid_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\combotree\tree_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\datagrid\datagrid_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\datagrid\datagrid_data2.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\datagrid\products.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\datalist\datalist_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\form\form_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\layout\datagrid_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\layout\propertygrid_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\layout\tree_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\propertygrid\propertygrid_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\tabs\tree_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\tagbox\tagbox_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\treegrid\treegrid_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\treegrid\treegrid_data2.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\treegrid\treegrid_data3.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\tree\tree_data1.json" />
-    <Content Include="Assets\jquery-easyui-1.5.2\demo\tree\tree_data2.json" />
-    <None Include="Assets\jQuey\jquery-1.9.1.intellisense.js" />
-    <Content Include="Assets\jQuey\jquery-1.9.1.js" />
-    <Content Include="Assets\jQuey\jquery-1.9.1.min.js" />
-    <None Include="Assets\jQuey\jquery-1.11.3.intellisense.js" />
-    <Content Include="Assets\jQuey\jquery-1.11.3.js" />
-    <Content Include="Assets\jQuey\jquery-1.11.3.min.js" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Assets\jQuey\jquery-1.9.1.min.map" />
+    <Content Include="Web.config" />
     <Content Include="Assets\jQuey\jquery-1.11.3.min.map" />
-    <Content Include="Views\Home\Table.cshtml" />
-    <Content Include="Views\LayoutFluid.cshtml" />
-    <Content Include="Views\Klz\Wuye.cshtml" />
-    <Content Include="Views\Danasusi\Youyingu.cshtml" />
-    <Content Include="Views\Home\Yilidan.cshtml" />
-    <Content Include="Views\Klz\Ailan.cshtml" />
+    <Content Include="Assets\jQuey\jquery-1.9.1.min.map" />
+    <Content Include="Assets\tzp.rar" />
+    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Bootstrap\Biaodan.cshtml" />
+    <Content Include="Views\Danasusi\Youyingu.cshtml" />
     <Content Include="Views\Easyui\DemoList.cshtml" />
     <Content Include="Views\Easyui\Tree.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Table.cshtml" />
+    <Content Include="Views\Home\Yilidan.cshtml" />
+    <Content Include="Views\Klz\Ailan.cshtml" />
+    <Content Include="Views\Klz\Wuye.cshtml" />
+    <Content Include="Views\LayoutFluid.cshtml" />
     <Content Include="Views\UrlMap\Index.cshtml" />
-    <Content Include="Assets\tzp.rar" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\InterceptedHandler.cs" />
-    <Compile Include="Controllers\Admin\UrlMapController.cs" />
-    <Compile Include="Controllers\Internal\ExceptionedController.cs" />
     <Compile Include="Controllers\Admin\AccountController.cs" />
-    <Compile Include="Controllers\Internal\AuthenticationedController.cs" />
+    <Compile Include="Controllers\Admin\UrlMapController.cs" />
     <Compile Include="Controllers\BootstrapController.cs" />
     <Compile Include="Controllers\DanasusiController.cs" />
     <Compile Include="Controllers\EasyuiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Internal\AuthenticationedController.cs" />
+    <Compile Include="Controllers\Internal\ExceptionedController.cs" />
     <Compile Include="Controllers\KlzController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Azeroth.Util\Azeroth.Util.csproj">
+      <Project>{33077314-dc9a-4881-a11a-651d024fe5bf}</Project>
+      <Name>Azeroth.Util</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gutop.Bll\Gutop.Bll.csproj">
       <Project>{0eca744c-1ce0-4a99-a89e-731be2cfe2c4}</Project>
       <Name>Gutop.Bll</Name>
@@ -751,10 +736,6 @@
     <ProjectReference Include="..\Gutop.Model\Gutop.Model.csproj">
       <Project>{e0ab7c26-07ec-4a9e-b062-775655d12f0f}</Project>
       <Name>Gutop.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Azeroth.Util\Azeroth.Util.csproj">
-      <Project>{33077314-dc9a-4881-a11a-651d024fe5bf}</Project>
-      <Name>Azeroth.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -784,7 +765,7 @@
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>此项目引用这台计算机上缺少的 NuGet 程序包。使用 NuGet 程序包还原可下载这些程序包。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />

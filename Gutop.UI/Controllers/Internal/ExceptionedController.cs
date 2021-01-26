@@ -4,14 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Gutop.Model;
-using Microsoft.Extensions.Logging;
 using Azeroth.Util;
 
 namespace Gutop.UI.Controllers
 {
     public class ExceptionedController : Controller
     {
-        public Microsoft.Extensions.Logging.ILogger<ExceptionedController> Logger { set; get; }
+        public log4net.ILog Logger { set; get; }
 
         protected override void OnException(ExceptionContext filterContext)
         {
@@ -20,8 +19,7 @@ namespace Gutop.UI.Controllers
                 gex = new GutopRuntimeException("未知", "发生未知异常",filterContext.Exception);
             }
             string eidName = gex.Method == null ? "未知" : gex.Method.DeclaringType.FullName + "." + gex.Method.Name;
-            EventId eid = new EventId(0, eidName);
-            this.Logger.LogError(eid, "请求地址{url},控制器入参{args}", this.Request.Url.AbsolutePath, gex.requestArgs);
+            this.Logger.ErrorFormat("请求地址{0},控制器入参{1}", this.Request.Url.AbsolutePath, gex.requestArgs);
 
             filterContext.Result = this.OnException(filterContext, gex);
             filterContext.ExceptionHandled = true;

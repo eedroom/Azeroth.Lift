@@ -5,15 +5,14 @@ using System.Web;
 using Castle.DynamicProxy;
 using Autofac;
 using Azeroth.Util.Autofac;
-using Microsoft.Extensions.Logging;
 using Azeroth.Util;
 
 namespace Gutop.UI.App_Start
 {
     public  class InterceptedHandler : Castle.DynamicProxy.IInterceptor, ISingleton
     {
-        Microsoft.Extensions.Logging.ILogger<InterceptedHandler> logger;
-        public InterceptedHandler(Microsoft.Extensions.Logging.ILogger<InterceptedHandler> logger) {
+        log4net.ILog logger;
+        public InterceptedHandler(log4net.ILog logger) {
             this.logger = logger;
         }
 
@@ -67,8 +66,7 @@ namespace Gutop.UI.App_Start
         {
             //审计日志，记录请求参数，记录每次请求的耗时，当前用户，url，方法等信息
             int time = (int)(DateTime.Now - beginTime).TotalMilliseconds;
-            EventId eid = new EventId(time,invocation.MethodInvocationTarget.DeclaringType.FullName+"."+invocation.MethodInvocationTarget.Name);
-            logger.LogInformation(eid,"{args}",invocation.Arguments);
+            logger.InfoFormat("{0}",invocation.Arguments);
         }
     }
 }
