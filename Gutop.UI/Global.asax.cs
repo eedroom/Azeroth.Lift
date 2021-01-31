@@ -20,7 +20,7 @@ namespace Gutop.UI {
             System.Web.Routing.RouteTable.Routes.MapRoute("l2",
                 "{controller}/{action}",
                 defaults: new { controller = "Home", action = "Index" });
-
+            
             //ioc和aop相关
             Type flagIScoped = typeof(IScoped);
             Type flagISingleton = typeof(ISingleton);
@@ -48,12 +48,9 @@ namespace Gutop.UI {
                 .PropertiesAutowired(PropertyWiringOptions.AllowCircularDependencies)
                 .InstancePerDependency();
 
-            //builder.RegisterType<Microsoft.Extensions.Logging.LoggerFactory>()
-            //    .As<Microsoft.Extensions.Logging.ILoggerFactory>()
-            //    .SingleInstance();
-            //builder.RegisterGeneric(typeof(Microsoft.Extensions.Logging.Logger<>))
-            //    .As(typeof(Microsoft.Extensions.Logging.ILogger<>))
-            //    .InstancePerDependency();
+            builder.RegisterGeneric(typeof(Azeroth.Util.Log<>))
+                .As(typeof(Azeroth.Util.ILog<>))
+                .SingleInstance();
 
             builder.RegisterControllers(System.Reflection.Assembly.GetExecutingAssembly())
                 .AsSelf()

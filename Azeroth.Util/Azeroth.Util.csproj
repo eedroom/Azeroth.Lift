@@ -30,9 +30,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,8 +56,13 @@
     <Compile Include="Autofac\IScoped.cs" />
     <Compile Include="Autofac\ISingleton.cs" />
     <Compile Include="Autofac\ITransient.cs" />
+    <Compile Include="SxRawLayout.cs" />
+    <Compile Include="SxPatternLayoutConverter.cs" />
+    <Compile Include="SxPatternLayout.cs" />
     <Compile Include="GutopRuntimeException.cs" />
     <Compile Include="IControllerIntercepted.cs" />
+    <Compile Include="ILog.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="MyEqualityComparer.cs" />
     <Compile Include="OrganizationCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +71,10 @@
     <Compile Include="UrlMapCategory.cs" />
     <Compile Include="UrlMapWrapper.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
