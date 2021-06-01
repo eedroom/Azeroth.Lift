@@ -693,7 +693,6 @@
     <Content Include="Web.config" />
     <Content Include="Assets\jQuey\jquery-1.11.3.min.map" />
     <Content Include="Assets\jQuey\jquery-1.9.1.min.map" />
-    <Content Include="Assets\tzp.rar" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Bootstrap\Biaodan.cshtml" />
     <Content Include="Views\Danasusi\Youyingu.cshtml" />
