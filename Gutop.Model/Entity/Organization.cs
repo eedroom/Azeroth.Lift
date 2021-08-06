@@ -16,7 +16,7 @@ namespace Gutop.Model.Entity
         ///
         /// </summary>
         [Key]
-        public Int32 Id {set;get;}
+        public Guid Id {set;get;}
         /// <summary>
         ///
         /// </summary>
@@ -26,7 +26,7 @@ namespace Gutop.Model.Entity
         /// <summary>
         ///
         /// </summary>
-        public Nullable<Int32> Pid {set;get;}
+        public Nullable<Guid> Pid {set;get;}
         /// <summary>
         ///
         /// </summary>

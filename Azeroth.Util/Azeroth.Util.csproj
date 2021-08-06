@@ -70,6 +70,7 @@
     <Compile Include="UrlMapAttribute.cs" />
     <Compile Include="UrlMapCategory.cs" />
     <Compile Include="UrlMapWrapper.cs" />
+    <Compile Include="UtilConst.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

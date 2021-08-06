@@ -11,8 +11,8 @@ namespace Gutop.App_Start
 {
     public  class InterceptedHandler : Castle.DynamicProxy.IInterceptor, ISingleton
     {
-        log4net.ILog logger;
-        public InterceptedHandler(log4net.ILog logger) {
+        Azeroth.Util.ILog<InterceptedHandler> logger;
+        public InterceptedHandler(Azeroth.Util.ILog<InterceptedHandler> logger) {
             this.logger = logger;
         }
 

@@ -16,7 +16,8 @@ namespace Gutop.Model.Entity
         ///
         /// </summary>
         [Key]
-        public Guid Id {set;get;}
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public long Id {set;get;}
         /// <summary>
         ///
         /// </summary>

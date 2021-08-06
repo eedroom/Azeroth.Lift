@@ -7,7 +7,7 @@ using Gutop.Model.Enum;
 namespace Gutop.Model.Entity
 {
     /// <summary>
-    /// 
+    /// 员工表
     /// <summary>
     [Table("Staff")]
     public partial class Staff
@@ -16,7 +16,7 @@ namespace Gutop.Model.Entity
         ///
         /// </summary>
         [Key]
-        public Int32 Id {set;get;}
+        public Guid Id {set;get;}
         /// <summary>
         ///
         /// </summary>

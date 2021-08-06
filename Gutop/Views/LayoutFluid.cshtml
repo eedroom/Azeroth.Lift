@@ -7,7 +7,7 @@
     if (mathedNav != null) {
         mathedNav.GetAllChildren().ToList().ForEach(x => x.value.Url = string.IsNullOrEmpty(x.value.Url) ? default(string) : x.value.Url);
     } else {
-        mathedNav = new Gutop.Model.Treedata<Gutop.Model.UrlMapWrapper>(default(Gutop.Model.UrlMapWrapper));
+        mathedNav = new Azeroth.Util.TreeNode<Azeroth.Util.UrlMapWrapper>(default(Azeroth.Util.UrlMapWrapper));
     }
     int menuIndex = 0;
 }

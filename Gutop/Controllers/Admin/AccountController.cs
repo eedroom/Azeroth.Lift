@@ -28,6 +28,7 @@ namespace Gutop.Controllers.Admin
             //表单校验，写人信息
             System.Web.Security.FormsAuthentication.SetAuthCookie(user.LoginName, parameter.IsPersistent??false);
             var targetUrl= System.Web.Security.FormsAuthentication.GetRedirectUrl(user.LoginName, parameter.IsPersistent ?? false);
+            this.HttpContext.Session[Azeroth.Util.UtilConst.UserSessionFlag] = user;
             return this.Json(ApiResult.OK(new { targetUrl}));
         }
     }

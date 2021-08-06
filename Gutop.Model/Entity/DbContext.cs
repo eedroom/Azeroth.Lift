@@ -8,7 +8,7 @@ namespace Gutop.Model.Entity
 {
   public partial class DbContext : System.Data.Entity.DbContext,Azeroth.Util.Autofac.IScoped
   {
-        public DbContext() : base("name=master")
+        public DbContext() : base("name=xcdb")
         {
         }    
     /// <summary>

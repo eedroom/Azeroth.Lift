@@ -34,7 +34,9 @@ namespace Gutop.Controllers
             //处理当前登录用户的信息，借助ioc的scop生命周期，实现本次请求内的当前用户信息共享，
             //传统的共享方式，借助session，这里不采用
             var userWrapper = Autofac.Integration.Mvc.AutofacDependencyResolver.Current.RequestLifetimeScope.Resolve<Model.UserWrapper>();
-            var user= this.Bll.GetEntity<Model.Entity.User>(x => x.LoginName == formsIdentity.Name);
+            var user=this.HttpContext.Session[Azeroth.Util.UtilConst.UserSessionFlag] as Model.Entity.User;
+            if(user==null)
+                user= this.Bll.GetEntity<Model.Entity.User>(x => x.LoginName == formsIdentity.Name);
             if (user == null) {
                 var loginurl = GetLoginPage(null, false);
                 filterContext.Result = this.Redirect(loginurl);

@@ -7,7 +7,7 @@ using Gutop.Model.Enum;
 namespace Gutop.Model.Entity
 {
     /// <summary>
-    /// 
+    /// ”√ªß±Ì
     /// <summary>
     [Table("User")]
     public partial class User
