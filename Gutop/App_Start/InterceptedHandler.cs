@@ -30,7 +30,7 @@ namespace Gutop.App_Start
                 invocation.Proceed();
                 this.Audit(invocation, beginTime);
             }
-            catch (GutopRuntimeException gex)
+            catch (InvokeFaildException gex)
             {
                 if(gex.Method==null)
                     gex.Method = invocation.MethodInvocationTarget;
@@ -38,7 +38,7 @@ namespace Gutop.App_Start
             }
             catch (Exception ex)
             {
-                var gex = new GutopRuntimeException(invocation.Arguments, "请查看内部异常详情", ex);
+                var gex = new InvokeFaildException(invocation.Arguments, "请查看内部异常详情", ex);
                 gex.Method = invocation.MethodInvocationTarget;
                 throw gex;
             }
@@ -51,7 +51,7 @@ namespace Gutop.App_Start
             if (controller.ModelState.IsValid)
                 return;
             string msg = string.Join(";", controller.ModelState.Values.SelectMany(x => x.Errors.Select(a => a.ErrorMessage)).ToList());
-            var gex = new GutopRuntimeException(invocation.Arguments, msg);
+            var gex = new InvokeFaildException(invocation.Arguments, msg);
             throw gex;
         }
 

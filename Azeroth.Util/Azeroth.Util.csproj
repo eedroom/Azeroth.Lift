@@ -56,14 +56,14 @@
     <Compile Include="Autofac\IScoped.cs" />
     <Compile Include="Autofac\ISingleton.cs" />
     <Compile Include="Autofac\ITransient.cs" />
+    <Compile Include="EqualityComparerWrapper.cs" />
     <Compile Include="SxRawLayout.cs" />
     <Compile Include="SxPatternLayoutConverter.cs" />
     <Compile Include="SxPatternLayout.cs" />
-    <Compile Include="GutopRuntimeException.cs" />
+    <Compile Include="InvokeFaildException.cs" />
     <Compile Include="IControllerIntercepted.cs" />
     <Compile Include="ILog.cs" />
     <Compile Include="Log.cs" />
-    <Compile Include="MyEqualityComparer.cs" />
     <Compile Include="OrganizationCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TreeNode.cs" />

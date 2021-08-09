@@ -14,18 +14,18 @@ namespace Gutop.Controllers
 
         protected override void OnException(ExceptionContext filterContext)
         {
-            var gex = filterContext.Exception as GutopRuntimeException;
+            var gex = filterContext.Exception as InvokeFaildException;
             if (gex == null) {
-                gex = new GutopRuntimeException("未知", "发生未知异常",filterContext.Exception);
+                gex = new InvokeFaildException("未知", "发生未知异常",filterContext.Exception);
             }
             string eidName = gex.Method == null ? "未知" : gex.Method.DeclaringType.FullName + "." + gex.Method.Name;
-            this.Logger.ErrorFormat("请求地址{0},控制器入参{1}", this.Request.Url.AbsolutePath, gex.requestArgs);
+            this.Logger.ErrorFormat("请求地址{0},控制器入参{1}", this.Request.Url.AbsolutePath, gex.RequestArgs);
 
             filterContext.Result = this.OnException(filterContext, gex);
             filterContext.ExceptionHandled = true;
         }
 
-        private ActionResult OnException(ExceptionContext filterContext, GutopRuntimeException ex)
+        private ActionResult OnException(ExceptionContext filterContext, InvokeFaildException ex)
         {
             if (filterContext.HttpContext.Request.IsAjaxRequest())
             {

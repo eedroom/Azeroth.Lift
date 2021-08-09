@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Azeroth.Util {
-    public class MyEqualityComparer<T> : IEqualityComparer<T> {
+namespace System {
+    public class EqualityComparerWrapper<T> : IEqualityComparer<T> {
         Func<T, T, bool> handler;
-        public MyEqualityComparer(Func<T,T,bool> handler) {
+        public EqualityComparerWrapper(Func<T,T,bool> handler) {
             this.handler = handler;
         }
 
